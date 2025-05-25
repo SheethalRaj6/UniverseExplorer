@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Save the Ocean!</title>
+    <style>
+        body {
+            background-color: #87CEEB;
+            overflow: hidden;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+        #gameContainer {
+            position: relative;
+            width: 1000px;
+            height: 600px;
+            margin: auto;
+            background: url("seabg.jpg") no-repeat center/cover;
+            border: 2px solid black;
+            overflow: hidden;
+        }
+        #boy {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+            background: url("boy.png") no-repeat center/contain;
+            background-size: cover;
+        }
+        .garbage {
+            position: absolute;
+            width: 99px;
+            height: 99px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        #restartBtn {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: none;
+        }
+        h4 {
+            top: 1000px;
+        }
+        #home {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #008CBA; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: inline-block; 
+            bottom:20px;
+            left: 20px;
+            position:fixed;
+
+}
+#howToPlay {
+    position: fixed;
+   
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 8px 16px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    color: darkblue;
+    z-index: 10;
+    top: 30px;
+}
+
+
+    </style>
+</head>
+<body>
+    <h2>Save the Ocean: Collect Trash!</h2>
+    <div id="gameContainer">
+        <div id="boy"></div>
+    </div>
+    <h3>Score: <span id="score">0</span></h3>
+    <button id="restartBtn">Restart Game</button>
+
+    <a href="mainuid.html">
+        <button id="home">BACK TO HOME</button>
+    </a>
+
+    <p id="howToPlay">
+        🎮 Use the arrow keys (⬅️⬆️⬇️➡️) to move the scuba boy and collect all the trash from the ocean! ♻️🌊
+    </p>
+    
+    
+    
+    
+    
+
+    <script>
+        let boy = document.getElementById("boy");
+        let gameContainer = document.getElementById("gameContainer");
+        let scoreDisplay = document.getElementById("score");
+        let restartBtn = document.getElementById("restartBtn");
+        let score = 0;
+        let boySpeed = 20;
+        let garbageImages = ["plastic.png", 
+            "bottle1-removebg-preview.png",  
+            "bottle2-removebg-preview.png"];
+
+        document.addEventListener("keydown", function(event) {
+            let left = parseInt(window.getComputedStyle(boy).getPropertyValue("left"));
+            let top = parseInt(window.getComputedStyle(boy).getPropertyValue("top")) || 50;
+            let containerWidth = gameContainer.clientWidth - boy.clientWidth;
+            let containerHeight = gameContainer.clientHeight - boy.clientHeight;
+            
+            if (event.key === "ArrowLeft" && left > 0) {
+                boy.style.left = left - boySpeed + "px";
+            }
+            if (event.key === "ArrowRight" && left < containerWidth) {
+                boy.style.left = left + boySpeed + "px";
+            }
+            if (event.key === "ArrowUp" && top > 0) {
+                boy.style.top = top - boySpeed + "px";
+            }
+            if (event.key === "ArrowDown" && top < containerHeight) {
+                boy.style.top = top + boySpeed + "px";
+            }
+            checkCollision();
+        });
+
+        function placeGarbage() {
+            for (let i = 0; i < 7; i++) {
+                let garbage = document.createElement("div");
+                garbage.classList.add("garbage");
+                let x, y, overlap;
+                
+                
+                do {
+                    overlap = false;
+                    x = Math.random() * (gameContainer.clientWidth - 80);
+                    y = Math.random() * (gameContainer.clientHeight - 80);
+
+                    document.querySelectorAll(".garbage").forEach(existingGarbage => {
+                        let existingRect = existingGarbage.getBoundingClientRect();
+                        if (Math.abs(existingRect.x - x) < 80 && Math.abs(existingRect.y - y) < 80) {
+                            overlap = true;
+                        }
+                    });
+
+                } while (overlap);
+
+                garbage.style.left = x + "px";
+                garbage.style.top = y + "px";
+                garbage.style.backgroundImage = `url(${garbageImages[Math.floor(Math.random() * garbageImages.length)]})`;
+                gameContainer.appendChild(garbage);
+            }
+        }
+
+        function checkCollision() {
+            let garbageItems = document.querySelectorAll(".garbage");
+            let boyRect = boy.getBoundingClientRect();
+            
+            garbageItems.forEach(garbage => {
+                let garbageRect = garbage.getBoundingClientRect();
+                if (
+                    boyRect.left < garbageRect.right &&
+                    boyRect.right > garbageRect.left &&
+                    boyRect.top < garbageRect.bottom &&
+                    boyRect.bottom > garbageRect.top
+                ) {
+                    garbage.remove();
+                    score += 10;
+                    scoreDisplay.innerText = score;
+
+                    if (document.querySelectorAll(".garbage").length === 0) {
+                        setTimeout(() => {
+                            alert("🎉 Hurrah! You completed the cleanup!");
+                            restartBtn.style.display = "block";
+                        }, 200);
+                    }
+                }
+            });
+        }
+
+        function restartGame() {
+            score = 0;
+            scoreDisplay.innerText = score;
+            document.querySelectorAll(".garbage").forEach(g => g.remove());
+            placeGarbage();
+            restartBtn.style.display = "none";
+        }
+
+        restartBtn.addEventListener("click", restartGame);
+
+        placeGarbage();
+    </script>
+</body>
+</html>

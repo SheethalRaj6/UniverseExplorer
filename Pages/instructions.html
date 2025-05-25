@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome, Captain!</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        text-align: center;
+        font-family: "Felix Titling";
+        background: url("INSTRUCTIONS.png") no-repeat center center fixed;
+        background-size: cover; /* Shows full image without cropping */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100vw 105vh;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: white;
+        overflow: hidden;
+      }
+
+      .container {
+        text-shadow: 3px 3px 8px rgba(105, 255, 243, 0.512);
+        animation: fadeIn 1.5s ease-in-out;
+        background: rgba(
+          186,
+          95,
+          255,
+          0.256
+        ); /* Adds slight dark overlay for readability */
+        padding: 30px;
+        border-radius: 15px;
+        width: 87%;
+        max-width: 800px;
+        position: absolute;
+        top: 87px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .instructions {
+        background: rgba(0, 0, 0, 0.5);
+        padding: 30px;
+        border-radius: 15px;
+        font-size: 27px;
+        box-shadow: 0 0 20px rgba(255, 24, 220, 0.3);
+        color: #4d85ff;
+        margin-top: 20px;
+        animation: slideIn 6s ease-in-out;
+        font-family: monospace;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      .button {
+        margin-top: 15px;
+        padding: 15px 30px;
+        font-size: 1.9em;
+        font-family: Agency FB;
+        background: linear-gradient(45deg, #b16fea, #ff66f0);
+        border: none;
+        border-radius: 15px;
+        cursor: pointer;
+        transition: transform 0.3s, background 0.3s, box-shadow 0.3s;
+        box-shadow: 0 0 15px rgba(16, 64, 205, 0.6);
+        color: black;
+        animation: floatButton 3s infinite alternate;
+      }
+
+      .button:hover {
+        background: #f900c7;
+        transform: scale(1.1);
+        box-shadow: 0 0 25px rgba(255, 0, 230, 0.8);
+      }
+
+      @keyframes floatButton {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(8px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1
+        style="
+          font-size: 45px;
+          text-shadow: 3px 3px 8px black;
+          color: rgb(243, 193, 255);
+        "
+      >
+        <strong>Greetings, Captain </strong
+        ><span id="captain-name">Explorer </span>!
+      </h1>
+      <p
+        style="
+          font-size: 23px;
+          font-family: monospace;
+          color: rgb(238, 172, 255);
+        "
+      >
+        Before we start, here are some instructions to ensure your smooth
+        journey through space.
+      </p>
+
+      <div class="instructions">
+        <ul>
+          <li>
+            On the homepage, you will see planets, Our Earth and a Space
+            Station.
+          </li>
+          <li>
+            Clicking on each of those will lead to their respective
+            destinations.
+          </li>
+          <li>
+            If you ever have any doubts about what you learnt, feel free to ask
+            Bluey, the Exploring Assistant! Bluey is inside the blue icon at the
+            bottom right.
+          </li>
+        </ul>
+      </div>
+
+      <p
+        style="
+          font-size: 25px;
+          color: rgba(241, 137, 255, 0.912);
+          margin-top: 15px;
+        "
+      >
+        Let’s go on an adventure!
+      </p>
+      <button class="button" onclick="startJourney()">Let’s Go!</button>
+    </div>
+
+    <script>
+      document.getElementById("captain-name").innerText =
+        localStorage.getItem("username") || "Explorer";
+      function startJourney() {
+        window.location.href = "homepage.html";
+      }
+    </script>
+  </body>
+</html>

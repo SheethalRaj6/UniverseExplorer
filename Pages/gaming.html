@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Eco Guardian - Forest Game</title>
+  <a href="mainpage.html" class="back-link">Back to MainPage</a>
+  <audio id="ecoSound" src="https://freesound.org/data/previews/341/341695_5260873-lq.mp3"></audio>
+<audio id="trashSound" src="https://freesound.org/data/previews/256/256113_3263906-lq.mp3"></audio>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1510070009289-b5bc34383727?auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+    }
+    h1 {
+      color: white;
+      text-align: center;
+      margin-top: 10px;
+      text-shadow: 2px 2px 4px #000;
+    }
+    #gameCanvas {
+      background-color: rgba(255, 255, 255, 0.1);
+      display: block;
+      margin: 0 auto;
+      border: 3px solid #fff;
+    }
+    #score {
+      text-align: center;
+      font-size: 24px;
+      color: white;
+      text-shadow: 1px 1px 3px #000;
+    }
+
+    #instructions {
+  position: absolute;
+  top: 200px;
+  left: 30px;
+  width: 280px;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  font-size: 16px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+  text-shadow: 1px 1px 2px black;
+  z-index: 10;
+}
+
+#instructions h2 {
+  margin-top: 0;
+  font-size: 22px;
+  color: #00ffcc;
+  text-align: center;
+}
+
+#instructions ul {
+  padding-left: 20px;
+}
+
+#instructions li {
+  margin-bottom: 10px;
+}
+
+.back-link {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            background: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+  </style>
+</head>
+<body>
+  <div id="instructions">
+    <h2>🕹️ How to Play</h2>
+    <ul>
+      <li>Use ⬅️ and ➡️ buttons or Arrow keys to move the basket.</li>
+      <li>Catch eco items like 🌿, 🍃, 🪵 to gain points.</li>
+      <li>Avoid trash items like 🗑️, 🧴, 🛢️ or you'll lose points!</li>
+      <li>Score 10 points to win. Avoid reaching -5 or you’ll lose.</li>
+    </ul>
+  </div>
+  
+    <div style="text-align:center; margin-top: 10px;">
+        <button onclick="moveLeft()" style="font-size: 24px;">⬅️</button>
+        <button onclick="moveRight()" style="font-size: 24px;">➡️</button>
+      </div>
+      
+      
+  <h1>🌱 Eco Guardian</h1>
+  <div id="score">Score: 0</div>
+  <canvas id="gameCanvas" width="500" height="600"></canvas>
+
+  <script>
+    function moveLeft() {
+  if (basket.x > 0) {
+    basket.x -= basket.speed;
+  }
+}
+
+function moveRight() {
+  if (basket.x < canvas.width - basket.width) {
+    basket.x += basket.speed;
+  }
+}
+
+    const canvas = document.getElementById("gameCanvas");
+    const ctx = canvas.getContext("2d");
+
+    const basket = {
+      x: canvas.width / 2 - 40,
+      y: canvas.height - 60,
+      width: 80,
+      height: 30,
+      speed: 7,
+    };
+
+    let score = 0;
+    let items = [];
+
+    const ecoItems = ["🌿", "🍃", "🪵"];
+    const trashItems = ["🗑️", "🧴", "🛢️"];
+
+    function createItem() {
+      const isEco = Math.random() < 0.6;
+      const emoji = isEco
+        ? ecoItems[Math.floor(Math.random() * ecoItems.length)]
+        : trashItems[Math.floor(Math.random() * trashItems.length)];
+      items.push({
+        x: Math.random() * (canvas.width - 30),
+        y: -30,
+        speed: 2 + Math.random() * 2,
+        emoji: emoji,
+        isEco: ecoItems.includes(emoji),
+      });
+    }
+
+    function drawBasket() {
+      ctx.fillStyle = "saddlebrown";
+      ctx.fillRect(basket.x, basket.y, basket.width, basket.height);
+    }
+
+    function drawItems() {
+      ctx.font = "48px Arial";
+      items.forEach(item => {
+        ctx.fillText(item.emoji, item.x, item.y);
+      });
+    }
+
+    function moveItems() {
+      items.forEach(item => {
+        item.y += item.speed;
+      });
+    }
+
+    function detectCatch() {
+      items = items.filter(item => {
+        const caught =
+          item.y + 20 >= basket.y &&
+          item.x >= basket.x &&
+          item.x <= basket.x + basket.width;
+        if (caught) {
+          if (item.isEco) {
+            score += 1;
+          } else {
+            score -= 1;
+          }
+          document.getElementById("score").innerText = "Score: " + score;
+        }
+        return item.y < canvas.height && !caught;
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      drawBasket();
+      drawItems();
+      moveItems();
+      detectCatch();
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft" && basket.x > 0) {
+        basket.x -= basket.speed;
+      }
+      if (e.key === "ArrowRight" && basket.x < canvas.width - basket.width) {
+        basket.x += basket.speed;
+      }
+    });
+
+    setInterval(() => {
+      createItem();
+    }, 1000);
+
+    function gameLoop() {
+      draw();
+      requestAnimationFrame(gameLoop);
+    }
+
+    gameLoop();
+    function detectCatch() {
+  items = items.filter(item => {
+    const caught =
+      item.y + 20 >= basket.y &&
+      item.x >= basket.x &&
+      item.x <= basket.x + basket.width;
+    if (caught) {
+      if (item.isEco) {
+        score += 1;
+        document.getElementById("ecoSound").play();
+      } else {
+        score -= 1;
+        document.getElementById("trashSound").play();
+      }
+      document.getElementById("score").innerText = "Score: " + score;
+
+      // Win/Loss conditions
+      if (score >= 10) {
+        alert("🎉 You are a true Eco Guardian! 🌿");
+        location.reload();
+      }
+      if (score <= -5) {
+        alert("💔 Game Over! You caught too much trash.");
+        location.reload();
+      }
+    }
+    return item.y < canvas.height && !caught;
+  });
+}
+
+  </script>
+</body>
+</html>

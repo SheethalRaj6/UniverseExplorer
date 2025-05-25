@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwater Animation</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: url("C:/Users/amrit/OneDrive/Desktop/underwater/bg.webp") no-repeat center center fixed;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+        }
+      
+
+        
+
+        /* Common styles for all fish */
+        .fish {
+            position: absolute;
+            width: 150px;
+        }
+
+        /* Fish moving left to right */
+        .fish-ltr {
+            animation: swim-ltr linear infinite;
+            transform: scaleX(-1); /* Ensure normal facing */
+        }
+
+        /* Fish moving right to left */
+        .fish-rtl {
+            animation: swim-rtl linear infinite;
+            transform: scaleX(-1); /* Ensure flipped direction */
+        }
+
+        /* Different heights & speeds for realism */
+        .fish1 { top: 26%; animation-duration: 13s; width: 200px; }
+        .fish2 { top: 50%; animation-duration: 45s; width: 220px; }
+        .fish3 { top: 8%; animation-duration: 22s; width: 200px; }
+        .fish4 { top: 60%; animation-duration: 20s; width: 160px; }
+        .fish5 { top: 79%; animation-duration: 30s; width: 220px; }
+        .fish6 { top: 8%; animation-duration: 28s; width: 220px; }
+        .fish7 { top: 24%; animation-duration: 15s; width: 180px; }
+        .fish8 { top: 80%; animation-duration: 45s; width: 240px; }
+        .fish9 { top: 20%; animation-duration: 20s; width: 180px; }
+        .fish10 { top: 10%; animation-duration: 17s; width: 170px; }
+        .fish11 { top: 48%; animation-duration: 25s; width: 520px; }
+        .fish12 { top: 77%; animation-duration: 15s; width: 170px; }
+        .fish13 { top: 44%; animation-duration: 14s; width: 220px; }
+        .fish14 { top: 32%; animation-duration: 34s; width: 220px; }
+        .fish15 { top: 32%; animation-duration: 25s; width: 220px; }
+        .fish16 { top: 9%; animation-duration: 22s; width: 260px; }
+
+
+
+        /* Keyframes for Left to Right */
+        @keyframes swim-ltr {
+            from { left: -150px; }
+            to { left: 100vw; }
+        }
+
+        /* Keyframes for Right to Left */
+        @keyframes swim-rtl {
+            from { right: -150px; }
+            to { right: 100vw; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Left to Right Fish (Facing Right) -->
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/pinfish-Photoroom.png" class="fish fish-ltr fish1" onclick="showFishDetails('Pinfish', 'C:/Users/amrit/OneDrive/Desktop/underwater/pinfish.jpg', 'Pinfish is a common species found in tropical waters.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/jelly fish-Photoroom.png" class="fish fish-ltr fish2"  onclick="showFishDetails('Jellyfish', 'c:/Users/amrit/OneDrive/Desktop/underwater/jellyfish.png', 'jellyfish can live up to 100 years and migrate long distances.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/siamese fighting fish-Photoroom.png" class="fish fish-ltr fish3"  onclick="showFishDetails('Siamese Fighting Fish', 'C:U/sers/amrit/OneDrive/Desktop/underwater/siamese fighting fish-Photoroom.png', 'Siamese fighting fish are aggressive and beautiful.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/Blue_tang-removebg-preview.png" class="fish fish-ltr fish4">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/Harlequin Filefish-Photoroom.png" class="fish fish-ltr fish9">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/powder blue tang-Photoroom.png" class="fish fish-ltr fish10" onclick="showFishDetails('Blue Tang', 'blue_tang.png', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/silver.png" class="fish fish-ltr fish13" onclick="showFishDetails('Blue Tang', 'blue_tang.png', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/seahorse.png" class="fish fish-ltr fish14" onclick="showFishDetails('Blue Tang', 'blue_tang.png', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/tropical.png" class="fish fish-ltr fish15" onclick="showFishDetails('Blue Tang', 'blue_tang.png', 'Blue Tang is known for its vibrant blue color.')">
+
+    
+
+
+
+
+
+    <!-- Right to Left Fish (Facing Left) -->
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/blue ringed octopus-Photoroom.png" class="fish fish-rtl fish5">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/star fish.png" class="fish fish-rtl fish6" >
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/Butterfly fish-Photoroom.png" class="fish fish-rtl fish7">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/turtle-Photoroom.png" class="fish fish-rtl fish8" onclick="showFishDetails('Sea Turtle', 'turtle.png', 'Sea turtles can live up to 100 years and migrate long distances.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/bluewhale-removebg-preview.png" class="fish fish-rtl fish11">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/glofish-Photoroom.png" class="fish fish-rtl fish12">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/oceanfish.png" class="fish fish-rtl fish16" onclick="showFishDetails('Blue Tang', 'blue_tang.png', 'Blue Tang is known for its vibrant blue color.')">
+    
+    
+    <script>
+        function showFishDetails(name, img, desc) {
+            // Redirect to fish details page with details in URL
+            window.location.href = `fishdetails.html?name=${encodeURIComponent(name)}&img=${encodeURIComponent(img)}&desc=${encodeURIComponent(desc)}`;
+
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<html>
+  <head>
+    <title>Mercury</title>
+    <style>
+      body {
+        background-color: rgb(0, 0, 0);
+      }
+      .f {
+        font-family: "Candara";
+      }
+      #heading {
+        position: absolute;
+        top: -9%;
+        left: 40%;
+        font-size: 80px;
+        color: rgb(245, 243, 240);
+        border: #090632;
+
+        text-shadow: 0 0 10px rgb(126, 175, 244), 0 0 20px rgb(76, 171, 235),
+          0 0 30px rgb(130, 173, 237), 0 0 30px rgb(249, 246, 243);
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+        text-decoration-color: rgb(214, 248, 77);
+      }
+      #fact {
+        position: absolute;
+        top: 36%;
+        left: 18%;
+        font-size: 28px;
+        color: rgb(8, 8, 94);
+        text-shadow: 0 0 10px rgb(112, 199, 240), 0 0 20px rgb(51, 52, 59),
+          0 0 30px rgb(87, 81, 102), 0 0 30px rgb(246, 226, 193);
+        font-family: "Cooper Black";
+      }
+      #bgVideo {
+        position: fixed;
+        z-index: -1; /* Sends video to the background */
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .c {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .glow-img:hover {
+        border-radius: 50px;
+        box-shadow: 0 0 50px #0055ff, 0 0 100px #93b8cb, 0 0 150px #0800ff;
+      }
+      #cloud1 {
+        position: absolute;
+        top: -11%;
+        right: 0%;
+        height: 49%;
+        width: 50%;
+      }
+      #cloud2 {
+        position: absolute;
+        top: 32%;
+        right: 0%;
+        height: 38%;
+        width: 38%;
+      }
+      #cloud3 {
+        position: absolute;
+        bottom: 2%;
+        right: 9%;
+        height: 40%;
+        width: 40%;
+      }
+
+      path {
+        fill: rgb(7, 223, 243);
+        stroke: rgb(12, 120, 251);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading">MERCURY</p>
+    <!--autoplay won't work unless the video is muted -->
+
+    <p id="fact">
+      &nbsp;&nbsp;&nbsp;&nbsp;I’m Mercury! <br />
+      I’m the smallest and<br />
+      &nbsp;&nbsp;closest planet to sun.
+    </p>
+    <a href="../../main.html">
+      <img
+        src="goBack.png"
+        style="position: absolute; top: -2%; left: 24%"
+        width="150px"
+        height="150px"
+      />
+      <p
+        style="
+          position: absolute;
+          top: 4%;
+          left: 26.3%;
+          color: rgb(247, 189, 17);
+          font-size: 16px;
+        "
+      >
+        GO ᗷᗩᑕK
+      </p>
+    </a>
+    <img src="mercury.png" id="bgVideo" />
+    <div class="c" id="imageContainer">
+      <img src="mercury1.jpg" width="350px" height="270px" id="mainImage" />
+    </div>
+    <button
+      id="nextButton"
+      style="
+        background: none;
+        position: absolute;
+        bottom: 21%;
+        left: 48%;
+        cursor: pointer;
+        border: none;
+      "
+    >
+      <img
+        src="playbuttonblue.png"
+        width="110px"
+        height="72px"
+        class="glow-img"
+      />
+    </button>
+    <p
+      style="
+        position: absolute;
+        bottom: 10%;
+        left: 34%;
+        color: #00fff7;
+        font-size: 24px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
+      "
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;ᶜˡⁱᶜᵏ ᵗʰᵉ ᵇᵘᵗᵗᵒⁿ! <br />
+      ᵀʰᵉʳᵉ ʷⁱˡˡ ᵇᵉ ᵃ ˢᵘʳᵖʳⁱˢᵉ <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⁱⁿ ᵗʰᵉ ᵉⁿᵈ.
+    </p>
+
+    <svg viewBox="0 0 105 105" id="cloud1">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="4"
+        fill="blue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="50" dy="2">Mercury is named after the</tspan>
+        <tspan x="52" dy="14">Roman messenger god, known for</tspan>
+        <tspan x="52" dy="14">being fast and agile, fitting for the</tspan>
+        <tspan x="52" dy="14">fastest planet in our solar system.</tspan>
+      </text>
+    </svg>
+
+    <svg viewBox="0 0 105 105" id="cloud2">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="6"
+        fill="green"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">Unlike many other</tspan>
+        <tspan x="52" dy="14">planets, Mercury has neither</tspan>
+        <tspan x="52" dy="14">moons nor rings.</tspan>
+      </text>
+    </svg>
+    <svg viewBox="0 0 105 105" id="cloud3">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="59"
+        font-size="5"
+        fill="blue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="43" dy="-7">A day on</tspan>
+        <tspan x="46" dy="9">Mercury takes 59</tspan>
+        <tspan x="52" dy="11">Earth days, while a year</tspan>
+        <tspan x="52" dy="14">takes only 88 Earth days.</tspan>
+      </text>
+    </svg>
+
+    <script>
+      const images = [
+        "mercury1.jpg",
+        "mercury2.jpg",
+
+        "mercury3.jpg",
+        "mercury4.jpg",
+      ];
+      let currentIndex = 0;
+      const mainImage = document.getElementById("mainImage");
+      const nextButton = document.getElementById("nextButton");
+
+      nextButton.addEventListener("click", function () {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          mainImage.src = images[currentIndex];
+        } else {
+          window.open(
+            "PuzzleMercury.html",
+            "PuzzleWindow",
+            "width=500,height=400"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

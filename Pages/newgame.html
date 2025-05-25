@@ -1,0 +1,106 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save the Ocean Game</title>
+    <style>
+        body {
+            background-color: #87CEEB;
+            overflow: hidden;
+            text-align: center;
+        }
+        #gameContainer {
+            position: relative;
+            width: 1000px;
+            height: 600px;
+            margin: auto;
+            background: url("C:/Users/amrit/OneDrive/Desktop/underwater/seabg.jpg") no-repeat center/cover;
+            border: 2px solid black;
+        }
+        #boy {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            width: 200px;
+            height: 200px;
+            background: url("C:/Users/amrit/Downloads/scubadiver-removebg-preview.png") no-repeat center/contain;
+            background-size: cover;
+        }
+        .garbage {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: url("C:/Users/amrit/Downloads/plastic.png") no-repeat center/contain;
+            background:url("C:/Users/amrit/Downloads/bottle1-removebg-preview.png")no-repeat center/contain;
+        }
+    </style>
+</head>
+<body>
+    <h2>Save the Ocean: Collect Trash!</h2>
+    <div id="gameContainer">
+        <div id="boy"></div>
+    </div>
+    <h3>Score: <span id="score">0</span></h3>
+    <script>
+        let boy = document.getElementById("boy");
+        let gameContainer = document.getElementById("gameContainer");
+        let scoreDisplay = document.getElementById("score");
+        let score = 0;
+        let boySpeed = 20;
+        
+        document.addEventListener("keydown", function(event) {
+            let left = parseInt(window.getComputedStyle(boy).getPropertyValue("left"));
+            let top = parseInt(window.getComputedStyle(boy).getPropertyValue("top")) || 50;
+            if (event.key === "ArrowLeft" && left > 0) {
+                boy.style.left = left - boySpeed + "px";
+            }
+            if (event.key === "ArrowRight" && left < 550) {
+                boy.style.left = left + boySpeed + "px";
+            }
+            if (event.key === "ArrowUp" && top > 0) {
+                boy.style.top = top - boySpeed + "px";
+            }
+            if (event.key === "ArrowDown" && top < 350) {
+                boy.style.top = top + boySpeed + "px";
+            }
+            checkCollision();
+        });
+        
+        function placeGarbage() {
+            for (let i = 0; i < 5; i++) {
+                let garbage = document.createElement("div");
+                garbage.classList.add("garbage");
+                garbage.style.left = Math.random() * 570 + "px";
+                garbage.style.top = Math.random() * 350 + "px";
+                gameContainer.appendChild(garbage);
+            }
+        }
+        
+        function checkCollision() {
+            let garbageItems = document.querySelectorAll(".garbage");
+            let boyRect = boy.getBoundingClientRect();
+            
+            garbageItems.forEach(garbage => {
+                let garbageRect = garbage.getBoundingClientRect();
+                if (
+                    boyRect.left < garbageRect.right &&
+                    boyRect.right > garbageRect.left &&
+                    boyRect.top < garbageRect.bottom &&
+                    boyRect.bottom > garbageRect.top
+                ) {
+                    garbage.remove();
+                    score += 10;
+                    scoreDisplay.innerText = score;
+                    if (document.querySelectorAll(".garbage").length === 0) {
+                        setTimeout(() => alert("You completed the cleanup!"), 200);
+                    }
+                }
+            });
+        }
+        
+        placeGarbage();
+    </script>
+</body>
+</html>

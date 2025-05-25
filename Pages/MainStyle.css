@@ -1,0 +1,65 @@
+.Background {
+  object-fit: cover;
+  /* Sends the background backwards */
+}
+html {
+  overflow: hidden;
+  background-color: #1a2139fb;
+}
+/* Sun Image - Left Center */
+.sun {
+  display: block;
+  position: absolute;
+  top: 30%;
+  left: 2%;
+  transform: translateY(-50%);
+  width: 317px;
+  height: 320px;
+  animation: bounce 1s infinite ease-in-out;
+  z-index: 10;
+}
+
+/* Bounce animation */
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.Blackhole {
+  display: block;
+  position: absolute;
+  width: 267px;
+  height: 220px;
+  animation: zoom-in-out 3s infinite ease-in-out;
+  z-index: 10;
+  transform: translateY(-50%);
+  top: 2%;
+  right: 18%;
+}
+@keyframes zoom-in-out {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2); /* Zoom in */
+  }
+}
+#EXTRA {
+  position: absolute;
+  top: -3%;
+  right: 6%;
+  font-size: 60px;
+  color: rgb(255, 244, 159);
+  border: #a76f1c;
+
+  text-shadow: 0 0 10px rgb(8, 20, 59), 0 0 20px rgb(26, 18, 74),
+    0 0 30px rgb(3, 57, 144), 0 0 40px rgb(27, 54, 150),
+    0 0 50px rgb(224, 217, 111), 0 0 70px rgb(230, 220, 88);
+  font-family: "Cooper Black";
+  text-decoration: none;
+}

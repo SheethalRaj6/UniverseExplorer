@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwater Animation</title>
+    <style>
+        body {
+
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: url("C:/Users/amrit/OneDrive/Desktop/underwater/bg.webp") repeat-x;
+            
+            
+            animation: waveMotion 5s infinite linear;
+            background-size:100% auto;
+            background-position: bottom;
+            
+            
+        }
+
+      
+
+        
+
+        /* Common styles for all fish */
+        .fish {
+            position: absolute;
+            width: 150px;
+            will-change: transform;
+        }
+
+        /* Fish moving left to right */
+        .fish-ltr {
+            animation: swim-ltr linear infinite;
+            transform: scaleX(-1); /* Ensure normal facing */
+        }
+
+        /* Fish moving right to left */
+        .fish-rtl {
+            animation: swim-rtl linear infinite;
+            transform: scaleX(-1); /* Ensure flipped direction */
+        }
+
+        /* Different heights & speeds for realism */
+        .fish1 { top: 26%; animation-duration: 13s; width: 200px; }
+        .fish2 { top: 50%; animation-duration: 45s; width: 220px; }
+        .fish3 { top: 8%; animation-duration: 22s; width: 200px; }
+        .fish4 { top: 60%; animation-duration: 20s; width: 160px; }
+        .fish5 { top: 70%; animation-duration: 35s; width: 220px; }
+        .fish6 { top: 13%; animation-duration: 32s; width: 220px; }
+        .fish7 { top: 24%; animation-duration: 15s; width: 180px; }
+        .fish8 { top: 80%; animation-duration: 45s; width: 240px; }
+        .fish9 { top: 20%; animation-duration: 20s; width: 180px; }
+        .fish10 { top: 10%; animation-duration: 17s; width: 170px; }
+        .fish11 { top: 50%; animation-duration: 25s; width: 520px; }
+        .fish12 { top: 77%; animation-duration: 19s; width: 170px; }
+        .fish13 { top: 44%; animation-duration: 14s; width: 220px; }
+        .fish14 { top: 32%; animation-duration: 34s; width: 220px; }
+        .fish15 { top: 32%; animation-duration: 25s; width: 220px; }
+        .fish16 { top: 6%; animation-duration: 22s; width: 260px; }
+
+
+
+        /* Keyframes for Left to Right */
+        @keyframes swim-ltr {
+            from { left: -200px; }
+            to { left: 100vw; }
+        }
+
+        /* Keyframes for Right to Left */
+        @keyframes swim-rtl {
+            from { right: -150px; }
+            to { right: 100vw; }
+        }
+        @keyframes waveMotion {
+            0% { background-position: 0 0; }
+           
+            100% { background-position: -200px -100px; }
+            
+        }
+        
+        .bubble {
+           position: absolute;
+           bottom: 0;
+           background: rgba(255, 255, 255, 0.6);
+           border-radius: 50%;
+           opacity: 0.8;
+           animation: rise 4s linear infinite;
+        }
+
+        @keyframes rise {
+           0% { transform: translateY(0); opacity: 1; }
+           100% { transform: translateY(-500px); opacity: 0; }
+        }
+        @keyframes lightRefraction {
+              0% { opacity: 0.5; transform: translateY(0px); }
+              50% { opacity: 0.7; transform: translateY(10px); }
+              100% { opacity: 0.5; transform: translateY(0px); }
+        }
+
+        .light {
+         position: absolute;
+         width: 100vw;
+         height: 100vh;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 70%);
+        animation: lightRefraction 5s infinite alternate ease-in-out;
+        pointer-events: none;
+       }
+       @keyframes ripple {
+          0% { transform: scale(1); opacity: 0.5; }
+          100% { transform: scale(10); opacity: 0; }
+        }
+
+       .ripple {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: ripple 1s linear;
+        }
+        .coral {
+            width:250px;
+            height: 200px;
+            top:1500px;
+            position: fixed;
+            bottom: 0; /* Sticks to the bottom */
+            top:550px;
+            left:1290px;
+    
+}
+         .coral2 {
+            width:250px;
+            height: 300px;
+            top:1400px;
+            position: fixed;
+            bottom: 0; /* Sticks to the bottom */
+            top:550px;
+            transform: scaleX(-1);
+            
+    
+}
+
+      
+        
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Left to Right Fish (Facing Right) -->
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/pinfish-Photoroom.png" class="fish fish-ltr fish1" onclick="showFishDetails('Pinfish', 'C:/Users/amrit/OneDrive/Desktop/underwater/pinfish.jpg', 'Pinfish is a common species found in tropical waters.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/jelly fish-Photoroom.png" class="fish fish-ltr fish2"  onclick="showFishDetails('Jellyfish', 'c:/Users/amrit/OneDrive/Desktop/underwater/jellyfish.png', 'jellyfish can live up to 100 years and migrate long distances.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/siamese fighting fish-Photoroom.png" class="fish fish-ltr fish3"  onclick="showFishDetails('Siamese Fighting Fish', 'C:/Users/amrit/OneDrive/Desktop/underwater/siamese fighting fish-Photoroom.png', 'Siamese fighting fish are aggressive and beautiful.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/Blue_tang-removebg-preview.png" class="fish fish-ltr fish4" onclick="showFishDetails('Blue Tang Fish', 'C:/Users/amrit/OneDrive/Desktop/underwater/Blue tang.png', 'Siamese fighting fish are aggressive and beautiful.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/Harlequin Filefish-Photoroom.png" class="fish fish-ltr fish9" onclick="showFishDetails('Harlequin Filefish', 'C:/Users/amrit/OneDrive/Desktop/underwater/HarlequinFilefish.png', 'Siamese fighting fish are aggressive and beautiful.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/powder blue tang-Photoroom.png" class="fish fish-ltr fish10" onclick="showFishDetails('Powder Blue Tang', 'C:/Users/amrit/OneDrive/Desktop/underwater/powderbluetang.jpg', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/silver.png" class="fish fish-ltr fish13" onclick="showFishDetails('Silver Fish', 'C:/Users/amrit/OneDrive/Desktop/underwater/silver.png', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/seahorse.png" class="fish fish-ltr fish14" onclick="showFishDetails('SeaHorse', 'C:/Users/amrit/OneDrive/Desktop/underwater/seahorse.png', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/tropical.png" class="fish fish-ltr fish15" onclick="showFishDetails('Tropical Fish', 'C:/Users/amrit/OneDrive/Desktop/underwater/tropical.png', 'Blue Tang is known for its vibrant blue color.')">
+
+    
+    
+
+
+
+    <!-- Right to Left Fish (Facing Left) -->
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/blue%20ringed%20octopus-Photoroom.png" class="fish fish-rtl fish5" onclick="showFishDetails('Octopus', 'C:/Users/amrit/OneDrive/Desktop/underwater/octopus.png', 'The Blue Ringed Octopus is one of the most venomous marine animals.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/star fish.png" class="fish fish-rtl fish6" onclick="showFishDetails('Star fish', 'C:/Users/amrit/OneDrive/Desktop/underwater/starfish.jpg', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/Butterfly fish-Photoroom.png" class="fish fish-rtl fish7" onclick="showFishDetails('Butterflyfish', 'C:/Users/amrit/OneDrive/Desktop/underwater/Butterflyfish.jpg', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/turtle-Photoroom.png" class="fish fish-rtl fish8" onclick="showFishDetails('Sea Turtle', 'C:/Users/amrit/OneDrive/Desktop/underwater/turtle.jpg', 'Sea turtles can live up to 100 years and migrate long distances.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/bluewhale-removebg-preview.png" class="fish fish-rtl fish11" onclick="showFishDetails('Blue whale', 'C:/Users/amrit/OneDrive/Desktop/underwater/bluewhale.jpg', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/glofish-Photoroom.png" class="fish fish-rtl fish12" onclick="showFishDetails('Glo Fish', 'C:/Users/amrit/OneDrive/Desktop/underwater/glofish.jpg', 'Blue Tang is known for its vibrant blue color.')">
+    <img src="file:///C:/Users/amrit/OneDrive/Desktop/underwater/oceanfish.png" class="fish fish-rtl fish16" onclick="showFishDetails('Ocean fish', 'C:/Users/amrit/OneDrive/Desktop/underwater/oceanfish.png', 'Blue Tang is known for its vibrant blue color.')">
+    <div class="light"></div>
+    <img src="C:\Users\amrit\Downloads\white coral.png" class="coral" onclick="showFishDetails('CORALS', 'C:/Users/amrit/OneDrive/Desktop/underwater/pinfish.jpg', 'Pinfish is a common species found in tropical waters.')">
+    <img src="C:\Users\amrit\Downloads\Coral_Reef_wikimedia_commons_featrd_img-removebg-preview.png" class="coral2" onclick="showFishDetails('Corals', 'C:/Users/amrit/OneDrive/Desktop/underwater/pinfish.jpg', 'Pinfish is a common species found in tropical waters.')">>
+    
+
+    
+
+    
+    <script>
+        function showFishDetails(name, img, desc) {
+            // Redirect to fish details page with details in URL
+            window.location.href = 'fishdetails.html?name=${encodeURIComponent(name)}&img=${encodeURIComponent(img)}&desc=${encodeURIComponent(desc)}'';
+
+        }
+        function createBubble() {
+           let bubble = document.createElement("div");
+           bubble.classList.add("bubble");
+           document.body.appendChild(bubble);
+           let size = Math.random() * 20 + 10; // Random size
+           bubble.style.width = size + "px";
+           bubble.style.height = size + "px";
+           bubble.style.left = Math.random() * window.innerWidth + "px";
+
+        setTimeout(() => {
+           bubble.remove();
+        }, 4000);
+        }
+
+        setInterval(createBubble, 500);
+        document.addEventListener("click", function(event) {
+            let ripple = document.createElement("div");
+            ripple.className = "ripple";
+            ripple.style.left = event.clientX + "px";
+            ripple.style.top = event.clientY + "px";
+            document.body.appendChild(ripple);
+        
+            setTimeout(() => { ripple.remove(); }, 1000);
+        });
+    </script>
+</body>
+</html>

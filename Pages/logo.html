@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Logo</title>
+  </head>
+
+  <body>
+    <svg width="200" height="200" viewBox="0 0 200 200">
+      <!-- Outer circle -->
+      <clipPath id="logoClip">
+        <circle cx="100" cy="100" r="90" />
+      </clipPath>
+
+      <!-- Clipping paths for the 4 inner circles -->
+      <clipPath id="circle1"><circle cx="75" cy="75" r="30" /></clipPath>
+      <clipPath id="circle2"><circle cx="125" cy="75" r="30" /></clipPath>
+      <clipPath id="circle3"><circle cx="75" cy="125" r="30" /></clipPath>
+      <clipPath id="circle4"><circle cx="125" cy="125" r="30" /></clipPath>
+    </defs>
+
+    <!--  Starry background inside logo circle -->
+    <g clip-path="url(#logoClip)">
+      <rect width="200" height="200" fill="black" />
+      <!--  Stars inside the logo -->
+      <circle cx="15" cy="20" r="1" fill="white" />
+       
+        <circle cx="65" cy="90" r="0.6" fill="white" />
+        <circle cx="110" cy="40" r="0.5" fill="white" />
+        <circle cx="130" cy="75" r="0.9" fill="white" />
+        <circle cx="100" cy="30" r="0.6" fill="white" />
+        <circle cx="160" cy="60" r="1" fill="white" />
+        <circle cx="170" cy="100" r="0.7" fill="white" />
+        <circle cx="190" cy="90" r="0.8" fill="white" />
+        <circle cx="140" cy="160" r="0.7" fill="white" />
+        <circle cx="70" cy="165" r="1" fill="white" />
+        <circle cx="40" cy="150" r="0.8" fill="white" />
+        <circle cx="25" cy="100" r="1" fill="white" />
+        <circle cx="35" cy="80" r="0.7" fill="white" />
+        <circle cx="50" cy="60" r="1.1" fill="white" />
+    </g>
+      <circle
+        cx="100"
+        cy="100"
+        r="78"
+        stroke="#019253"
+        stroke-width="3"
+        fill="none"
+      />
+
+      
+
+      <!-- Background Circles -->
+      <circle cx="75" cy="75" r="30" fill="#5ffffae9" />
+      <circle cx="125" cy="75" r="30" fill="#822f00ba" />
+      <circle cx="75" cy="125" r="30" fill="#5fffb7d4" />
+      <circle cx="125" cy="125" r="30" fill="#2D2D90" />
+
+      <!-- Image overlays -->
+      <image
+        href="img1.png"
+        x="45"
+        y="45"
+        width="69"
+        height="69"
+        clip-path="url(#circle1)"
+      />
+      <image
+        href="img2.png"
+        x="97"
+        y="45"
+        width="52"
+        height="52"
+        clip-path="url(#circle2)"
+      />
+      <image
+        href="img3.png"
+        x="45"
+        y="95"
+        width="60"
+        height="60"
+        clip-path="url(#circle3)"
+      />
+      <image
+        href="img4.png"
+        x="95"
+        y="95"
+        width="60"
+        height="60"
+        clip-path="url(#circle4)" style="background-color: #5ffffae9;"
+      />
+      <clipPath id="centerClip">
+        <circle cx="100" cy="100" r="20" />
+      </clipPath>
+      
+      <image href="girl6.png" x="80" y="80" width="40" height="40" clip-path="url(#centerClip)" />
+    </svg>
+  </body>
+</html>

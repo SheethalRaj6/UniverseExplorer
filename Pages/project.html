@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jungle</title>
+    <style>
+        body {
+            background-image: url("bgimg.png");
+            background-size: 1000px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: antiquewhite;
+            height: 100vh;  
+            font-family: Century Gothic;
+            
+        }
+        
+        .animal-img { 
+            width: 300px; 
+            height: 300px; 
+            margin-top: 10px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+            left: 20px; 
+            top: 20%; 
+            transform: translateY(-50%);
+        }
+
+        .video-container {
+            width: 250px;
+            height: 250px;
+            position: absolute;
+            left: 104%;
+            bottom: 0;
+            transform: translate(-50%, -50%);
+        }
+
+        video {
+            width: 150%;
+            height: 150%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .audio-container {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            left: 100%;
+            transform: translate(-50%, -50%);
+        }
+
+        audio {
+            width: 70%;
+            height: 70%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            position: relative;
+            width: 80%;
+            height: 80vh;
+        }
+
+        .text-container {
+            flex: 1;
+            text-align: center;
+            font-family: Century Gothic;
+            font-size: 21px;
+            font-weight: bold;
+            color: black;
+            position: absolute;
+            left: 64%;
+            top: 75%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+        }
+
+        .back-link {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            background: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+            position: fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img id="animal-image" class="animal-img">
+        <div class="video-container" id="video-container">
+        </div>
+        <div class="text-container">
+            <h1 id="animal-name">Loading...</h1>
+            <p id="animal-description">Fetching description...</p>
+        </div>
+    </div>
+    
+    <a href="jungle.html" class="back-link">Back to forest</a>
+    
+    <script>
+        // Get URL parameters safely
+        const urlParams = new URLSearchParams(window.location.search);
+        const name = urlParams.get('name');
+        const img = urlParams.get('img');
+        const desc = urlParams.get('desc');
+        const video = urlParams.get('video');
+        
+        document.getElementById('animal-name').textContent = name;
+        document.getElementById('animal-image').src = img;
+        document.getElementById('animal-description').textContent = desc;
+        
+        if (video) {
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.innerHTML = `
+                <video controls autoplay>
+                    <source src="${video}" type="video/mp4">
+                </video>
+            `;
+        }
+    </script>
+</body>
+</html>

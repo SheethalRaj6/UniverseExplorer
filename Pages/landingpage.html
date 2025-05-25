@@ -1,0 +1,32 @@
+<html>
+    <head>
+        <title>Welcome!</title>
+    <style>
+        body {
+            background-image: url("landinghome.jpg");
+            background-size: 95.5%;
+        }
+
+        .instruction{
+            cursor: pointer;
+            position: absolute;
+            bottom: 5%;
+            left: 18%;
+        }
+
+        img:hover{
+            transform: scale(1.1);
+            z-index: 2;
+            border-radius: 45px;
+            box-shadow: 0 0 5px rgb(221, 100, 221), 0 0 25px rgb(221, 100, 221), 0 0 50px rgb(221, 100, 221), 
+            0 0 100px rgb(221, 100, 221), 0 0 200px rgb(221, 100, 221);
+        }
+    </style>
+    </head>
+
+    <body>
+        <div onclick="location.href='Loginpage.html';" class="instruction">
+            <img src="login.png">
+        </div>
+    </body>
+</html>

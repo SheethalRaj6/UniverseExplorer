@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <title>Asteroid Belt</title>
+    <style>
+      body {
+        background-color: #000000;
+      }
+      .f {
+        font-family: "Candara";
+      }
+      #heading {
+        position: absolute;
+        top: -5%;
+        left: 36%;
+        font-size: 80px;
+        color: rgb(242, 242, 242);
+        border: #261ca7;
+
+        text-shadow: 0 0 10px rgb(107, 124, 250), 0 0 20px rgb(23, 5, 137),
+          0 0 30px rgb(241, 234, 227), 0 0 30px rgb(243, 231, 229);
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+        text-decoration-color: rgb(247, 247, 249);
+      }
+
+      #bgVideo {
+        position: fixed;
+        z-index: -1; /* Sends video to the background */
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .c {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .glow-img:hover {
+        border-radius: 50px;
+        box-shadow: 0 0 50px #0022ff, 0 0 100px #cbbc93, 0 0 150px #e5bb14;
+      }
+      #cloud1 {
+        position: absolute;
+        top: -11%;
+        right: 0%;
+        height: 49%;
+        width: 50%;
+      }
+      #cloud2 {
+        position: absolute;
+        top: 32%;
+        right: 0%;
+        height: 38%;
+        width: 38%;
+      }
+      #cloud3 {
+        position: absolute;
+        bottom: 2%;
+        right: 9%;
+        height: 40%;
+        width: 40%;
+      }
+
+      path {
+        fill: rgba(98, 189, 228, 0.668);
+        stroke: rgb(12, 66, 123);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading">Asteroid Belt</p>
+    <!--autoplay won't work unless the video is muted -->
+
+    <a href="../../main.html">
+      <img
+        src="goBack.png"
+        style="position: absolute; top: -2%; left: 24%"
+        width="150px"
+        height="150px"
+      />
+      <p
+        style="
+          position: absolute;
+          top: 5.9%;
+          left: 27.4%;
+          color: rgb(254, 227, 94);
+          font-size: 11px;
+        "
+      >
+        GO BACK
+      </p>
+    </a>
+    <img src="belt.png" id="bgVideo" />
+    <div class="c" id="imageContainer">
+      <img src="belt1.jpg" width="350px" height="270px" id="mainImage" />
+    </div>
+    <button
+      id="nextButton"
+      style="
+        background: none;
+        position: absolute;
+        bottom: 21%;
+        left: 48%;
+        cursor: pointer;
+        border: none;
+      "
+    >
+      <img
+        src="playbuttonBlue.png"
+        width="80px"
+        height="72px"
+        class="glow-img"
+      />
+    </button>
+    <p
+      style="
+        position: absolute;
+        bottom: 14%;
+        left: 41%;
+        color: #f8fefd;
+        font-size: 24px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
+      "
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;ᶜˡⁱᶜᵏ ᵗʰᵉ ᵇᵘᵗᵗᵒⁿ! <br />
+    </p>
+
+    <svg viewBox="0 0 105 105" id="cloud1">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="4"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="50" dy="2">The asteroid belt is</tspan>
+        <tspan x="52" dy="10">a torus-shaped region in the Solar System,</tspan>
+        <tspan x="52" dy="11">centered on the Sun and roughly spanning</tspan>
+        <tspan x="52" dy="11">the space between the orbits</tspan>
+        <tspan x="52" dy="11">of the planets Jupiter and Mars.</tspan>
+      </text>
+    </svg>
+
+    <svg viewBox="0 0 105 105" id="cloud2">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="60"
+        font-size="5"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">Ceres is the largest</tspan>
+        <tspan x="52" dy="14">known asteroid at 620</tspan>
+        <tspan x="52" dy="14">miles across.</tspan>
+      </text>
+    </svg>
+    <svg viewBox="0 0 105 105" id="cloud3">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="67"
+        font-size="5"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="47" dy="-8">Asteroids are</tspan>
+        <tspan x="46" dy="9">rich in minerals and water.</tspan>
+        <tspan x="52" dy="9">Asteroids have water gullies. Some</tspan>
+        <tspan x="52" dy="9">asteroids became the moons of planets.</tspan>
+      </text>
+    </svg>
+
+    <script>
+      const images = ["belt1.jpg", "belt2.jpg", "belt3.jpg"];
+      let currentIndex = 0;
+      const mainImage = document.getElementById("mainImage");
+      const nextButton = document.getElementById("nextButton");
+
+      nextButton.addEventListener("click", function () {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          mainImage.src = images[currentIndex];
+        }
+      });
+    </script>
+  </body>
+</html>

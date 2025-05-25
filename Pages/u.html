@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwater Coloring Page</title>
+    <style>
+        body {
+            text-align: center;
+            background-color:violet;
+        }
+        canvas {
+            border: 3px solid black;
+            background: url("C:/Users/amrit/OneDrive/Desktop/underwater/simplecastle.webp") no-repeat center/cover;
+        }
+        .tools {
+            margin: 10px;
+        }
+        .color-btn {
+            width: 40px;
+            height: 40px;
+            display: inline-block;
+            cursor: pointer;
+            border: 2px solid black;
+            margin: 5px;
+        }
+        #clearBtn {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: red;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h2>Underwater Coloring Page 🎨🐠</h2>
+    <div class="tools">
+        <span class="color-btn" style="background: red;" onclick="changeColor('red')"></span>
+        <span class="color-btn" style="background: orange;" onclick="changeColor('orange')"></span>
+        <span class="color-btn" style="background: yellow;" onclick="changeColor('yellow')"></span>
+        <span class="color-btn" style="background: rgb(114, 209, 5);" onclick="changeColor('rgb(114,209,5)')"></span>
+        <span class="color-btn" style="background: deepskyblue;" onclick="changeColor('deepskyblue')"></span>
+        <span class="color-btn" style="background: blue;" onclick="changeColor('blue')"></span>
+        <span class="color-btn" style="background: black;" onclick="changeColor('black')"></span>
+        <input type="range" min="2" max="20" value="5" id="brushSize" oninput="changeSize(this.value)">
+        <button id="clearBtn" onclick="clearCanvas()">Clear</button>
+    </div>
+    <canvas id="drawingCanvas" width="800" height="500"></canvas>
+    <script>
+        let canvas = document.getElementById("drawingCanvas");
+        let ctx = canvas.getContext("2d");
+        let painting = false;
+        let currentColor = "black";
+        let brushSize = 5;
+
+        function startPainting(e) {
+            painting = true;
+            draw(e);
+        }
+
+        function stopPainting() {
+            painting = false;
+            ctx.beginPath();
+        }
+
+        function draw(e) {
+            if (!painting) return;
+
+            ctx.lineWidth = brushSize;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = currentColor;
+
+            let rect = canvas.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
+
+            ctx.lineTo(x, y);
+            ctx.stroke();
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        function changeColor(color) {
+            currentColor = color;
+        }
+
+        function changeSize(size) {
+            brushSize = size;
+        }
+
+        function clearCanvas() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+        }
+
+        canvas.addEventListener("mousedown", startPainting);
+        canvas.addEventListener("mouseup", stopPainting);
+        canvas.addEventListener("mousemove", draw);
+    </script>
+</body>
+</html>

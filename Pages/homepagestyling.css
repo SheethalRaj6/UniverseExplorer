@@ -1,0 +1,195 @@
+#myVideo {
+    position: fixed;
+right: 0;
+bottom: 0;
+min-width: 100%; 
+min-height: 100%;
+z-index: -2;
+    }
+.sun-glow {
+ position: fixed;
+top: 0;
+left: 0;
+width: 50%; 
+height: 100%;
+background: radial-gradient(circle at left, rgba(255, 223, 0, 0.7), rgba(255, 165, 0, 0.3), rgba(0, 0, 0, 0));
+z-index: 0;
+
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .moving-image, .moving-image1, .moving-image2, .moving-image3, .moving-image4, .moving-image5 {
+        display: block;
+        animation: bounce 2s infinite ease-in-out;
+    }
+
+    .moving-image {
+        margin: 50px auto;
+        width: 485px;
+        position:absolute;
+        top: 14%;
+        left: 33%;
+        border-radius: 90%;
+    }
+    .moving-image1 {
+        margin: 100px auto;
+        width: 175px;
+        bottom: 200%;
+        position: absolute;
+        top:62%;
+        left:2%
+    }
+    .moving-image2 {
+        margin: 100px auto 100px 50px;
+        width: 215px;
+        position: absolute;
+        top:51%;
+        left:15%;
+    }
+    .moving-image3 {
+        margin: 50px auto;
+        margin-right: 0%;
+        margin-top: -5%;
+        width: 225px;
+        position: absolute;
+        right:2%;
+    }
+    .moving-image4 {
+        margin: 50px auto;
+        margin-top: 0%;
+        width: 205px;
+        position: absolute;
+        right:19.8%;
+        top:25%;
+    }
+    .title-container {
+        text-align: center;
+    }
+
+    .moving-image5 {
+        margin-right: 7%;
+        position: absolute;
+        right:-1%;
+        top:65%;
+    }
+    a {
+        display: block;
+    }
+
+    .space-button {
+        position: fixed;
+  top: 20px;
+  right: 20px;
+        padding: 10px 25px;
+        font-size: 18px;
+        color: #fff;
+        background: linear-gradient(90deg, #ff008081, #7928ca6b, #2afade60);
+                border: none;
+        border-radius: 12px;
+        cursor: pointer;
+        text-decoration: none;
+        box-shadow: 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(155, 0, 255, 0.3);
+        animation: glowing 3s ease-in-out infinite;
+        transition: transform 0.2s ease;
+      }
+  
+      .space-button:hover {
+        transform: scale(1.05);
+      }
+  
+      @keyframes glowing {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+
+    .twinkle-title {
+    font-family: 'Monoton', cursive;
+    font-size: 60px;
+    text-align: center;
+    color: #0b1a36;
+    text-shadow:
+        0 0 5px #fff,
+        0 0 10px #ffea00,
+        0 0 20px #ffd700,
+        0 0 30px #ffaa00;
+    animation: twinkle 2.5s infinite ease-in-out alternate;
+    margin-top: 20px;
+}
+
+@keyframes twinkle {
+    0% {
+        opacity: 1;
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #c77afa,
+            0 0 20px #a046db,
+            0 0 30px #7700ff;
+    }
+    50% {
+        opacity: 0.8;
+        text-shadow:
+            0 0 3px #fff,
+            0 0 6px #ffee00,
+            0 0 10px #ffcc00,
+            0 0 15px #ff9900;
+    }
+    100% {
+        opacity: 1;
+        text-shadow:
+            0 0 5px #fff,
+            0 0 10px #00ffff,
+            0 0 20px #00eeff,
+            0 0 30px #00a2ff;
+    }
+}
+
+.logo-overlay {
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    animation: moveLogoToForm 0.7s ease-out forwards;
+    pointer-events: none; /* So it doesn't block clicks */
+  }
+
+  .logo-container {
+    width: 250px;
+    height: 250px;
+    transform: scale(3);
+    opacity: 0;
+    animation: zoomOutLogo 1s ease-out forwards;
+  }
+
+  @keyframes zoomOutLogo {
+    0% {
+      transform: scale(3);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes moveLogoToForm {
+    0% {
+      top: 0%;
+      left: 0%;
+      transform: translate(-50%, -50%);
+    }
+    100% {
+      top: 0%; /* Match your .image div */
+      left: 0%;
+      transform: translate(0, 0);
+    }
+  }

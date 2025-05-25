@@ -1,0 +1,222 @@
+<html>
+  <head>
+    <title>Black Hole</title>
+    <style>
+      body {
+        background-color: rgb(0, 0, 0);
+      }
+      .f {
+        font-family: "Candara";
+      }
+      #heading {
+        position: absolute;
+        top: -9%;
+        left: 36%;
+        font-size: 100px;
+        color: rgb(245, 243, 240);
+        border: #ff6600;
+
+        text-shadow: 0 0 10px rgb(246, 127, 37), 0 0 20px rgb(235, 156, 76),
+          0 0 30px rgb(237, 198, 130), 0 0 30px rgb(246, 226, 193);
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+        text-decoration-color: rgb(248, 248, 77);
+      }
+
+      #bgVideo {
+        position: fixed;
+        z-index: -1; /* Sends video to the background */
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .c {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .glow-img:hover {
+        border-radius: 50px;
+        box-shadow: 0 0 50px #ff6600, 0 0 100px #ff3300, 0 0 150px #ff0000;
+      }
+      #cloud1 {
+        position: absolute;
+        top: -11%;
+        right: 0%;
+        height: 49%;
+        width: 50%;
+      }
+      #cloud2 {
+        position: absolute;
+        top: 32%;
+        right: 0%;
+        height: 38%;
+        width: 38%;
+      }
+      #cloud3 {
+        position: absolute;
+        bottom: 2%;
+        right: 9%;
+        height: 40%;
+        width: 40%;
+      }
+
+      path {
+        fill: rgb(243, 231, 7);
+        stroke: rgb(251, 127, 12);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading">Black Hole</p>
+    <!--autoplay won't work unless the video is muted -->
+
+    <a href="../../main.html">
+      <img
+        src="goBack.png"
+        style="position: absolute; top: -2%; left: 24%"
+        width="150px"
+        height="150px"
+      />
+      <p
+        style="
+          position: absolute;
+          top: 4%;
+          left: 26.3%;
+          color: rgb(247, 189, 17);
+          font-size: 16px;
+        "
+      >
+        GO ᗷᗩᑕK
+      </p>
+    </a>
+    <img src="hole.png" id="bgVideo" />
+    <div class="c" id="imageContainer">
+      <img src="hole1.jpg" width="370px" height="290px" id="mainImage" />
+    </div>
+    <button
+      id="nextButton"
+      style="
+        background: none;
+        position: absolute;
+        top: 69%;
+        left: 48%;
+        cursor: pointer;
+        border: none;
+      "
+    >
+      <img
+        src="playbuttonsunnew.png"
+        width="72px"
+        height="72px"
+        class="glow-img"
+      />
+    </button>
+    <p
+      style="
+        position: absolute;
+        bottom: 16%;
+        left: 38%;
+        color: #ff6600;
+        font-size: 24px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
+      "
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;ᶜˡⁱᶜᵏ ᵗʰᵉ ᵇᵘᵗᵗᵒⁿ! <br />
+    </p>
+
+    <svg viewBox="0 0 105 105" id="cloud1">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="4"
+        fill="red"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">A black hole is so</tspan>
+        <tspan x="52" dy="14">dense that gravity just beneath</tspan>
+        <tspan x="52" dy="14">its surface, is strong enough</tspan>
+        <tspan x="52" dy="14">so that even light cannot escape</tspan>
+      </text>
+    </svg>
+
+    <svg viewBox="0 0 105 105" id="cloud2">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="6"
+        fill="red"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">It forms when a</tspan>
+        <tspan x="52" dy="14">massive star collapses under</tspan>
+        <tspan x="52" dy="14">its own gravity at the end of</tspan>
+        <tspan x="52" dy="14">its life cycle.</tspan>
+      </text>
+    </svg>
+    <svg viewBox="0 0 105 105" id="cloud3">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="66"
+        font-size="5"
+        fill="red"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="49" dy="-7">The boundary around</tspan>
+        <tspan x="44" dy="9">a black hole, beyond which</tspan>
+        <tspan x="52" dy="11">nothing can return, is called</tspan>
+        <tspan x="52" dy="12">the event horizon.</tspan>
+      </text>
+    </svg>
+
+    <script>
+      const images = ["hole1.jpg", "hole2.jpeg", "hole3.jpeg"];
+      let currentIndex = 0;
+      const mainImage = document.getElementById("mainImage");
+      const nextButton = document.getElementById("nextButton");
+
+      nextButton.addEventListener("click", function () {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          mainImage.src = images[currentIndex];
+        }
+      });
+    </script>
+  </body>
+</html>

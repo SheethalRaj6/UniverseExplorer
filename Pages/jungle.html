@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Jungle Explorer</title>
+    <a href="mainpage.html" class="back-link">Back to Menu</a>
+    <style>
+ body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: url("forest.jpg") ;
+    background-size:100% ;
+    background-position: fixed;
+    }
+    .back-link {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 18px;
+            text-decoration: none;
+            color: white;
+            background: #1c3625;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+.lion {
+height: 300px;
+left: 5%;
+position: absolute;
+bottom: 0;
+}
+.elephant {
+height: 450px;
+width: 500px;
+right: 2%;
+position: absolute;
+bottom: 0;
+}
+.bluebell {
+height: 200px;
+left: 25%;
+position: absolute;
+bottom: 0;
+}
+.bellwort {
+height: 150px;
+right:49%;
+position: absolute;
+bottom: 0;
+}
+.warblers {
+    height: 150px;
+    left: 8%;
+    position: absolute;
+}
+.mountain-laurel {
+    height:150px;
+    left:56%;
+    position:absolute;
+    bottom:0%;
+}
+.cheetah {
+height: 250px;
+right:35%; 
+position:absolute;
+bottom: 0;
+top: 45%;
+}
+.Common-Tailorbird {
+    height: 150px;
+    position: absolute;
+    left: 50%;
+}
+.monkey{
+    height: 400px;
+    position: absolute;
+    left: 20%;
+}
+.zebra {
+    position: absolute;
+     height: 300px;
+     right: 51%;
+     bottom: 14%;
+}
+
+@keyframes lightRefraction {
+              0% { opacity: 0.5; transform: translateY(0px); }
+              50% { opacity: 0.7; transform: translateY(10px); }
+              100% { opacity: 0.5; transform: translateY(0px); }
+        }
+
+        .light {
+         position: absolute;
+         width: 100vw;
+         height: 100vh;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 70%);
+        animation: lightRefraction 5s infinite alternate ease-in-out;
+        pointer-events: none;
+       }
+
+    </style>
+</head>
+<body>
+    
+    <img src="elephant.png" class="elephant" onclick="project('Elephant','elephant3.jpg', 'Elephants are  big animals that live in the jungle. Elephants have huge ears that help them cool down by flapping them like big fans.They have a long trunk, which is like a super-long nose, that helps them breathe, drink,and grab food.Elephants love to eat fruits, leaves, and bark,and they can drink a lot of water - up to 113.562 litres per day.Elephants can grow up to 13 feet (4 meters) tall and weigh up to 14,000 pounds (6,350 kg).Elephants eat for 16-18 hours a day and can eat up to 300 pounds (136 kg) of food daily.Elephants are HERBIVOROUS animals, which means they primarily eat plants and plant-based foods,like Grasses,Leaves,Fruits,Bark,Roots etc;.An elephants skin is about 1 inch (2.5 cm) thick, but it is very sensitive.They cover themselves in mud to protect their skin from the sun and insect bites.','elephant video.mp4')">
+    <img src="lion.png" class="lion" onclick="project('Lion', 'lion.jpg', 'Lions are majestic animals known as the kings of the jungle.They are also called as majestic big cats.Baby lions are called cubs.They are born blind and open their eyes after a few days.They live in groups called prides.These magnificent animals have a loud roar that can be heard up to five miles away, which helps them communicate with each other. Lions are carnivores.They hunt animals like zebras, wildebeests, and antelopes. Male lions have a distinctive mane, which is a thick, fluffy mass of hair around their heads, making them look even more impressive. Lions spend a lot of their time resting and can sleep up to 20 hours a day.Night Hunters: Lions prefer to hunt at night when its cooler. They have excellent night vision, which helps them see in the dark and stalk their prey.Lions can eat up to 40 kg of meat in one meal.','lionvideo.mp4')"> 
+    <img src="bluebell.png" class="bluebell" onclick="project('Bluebell','Bluebell.jpg','Bluebells are beautiful, delicate flowers that grow in the wild.Bluebells bloom in April and May, covering the ground with a sea of beautiful blue and purple flowers.Bluebells have a lovely, sweet fragrance that attracts bees and butterflies.They bloom in the spring and cover the forest floor with a carpet of blue, bell-shaped flowers. Bluebells love shady, woodland areas and grow in clusters, creating a magical atmosphere. These flowers are special because they are protected, which means we need to be careful not to pick or damage them. Bees and butterflies love Bluebells, and they help pollinate the flowers. In some places, Bluebells are considered a symbol of good luck and happiness. They are also a sign that spring has arrived, and warmer weather is on its way.bluebells are toxic to humans and animals.')">
+    <img src="girafee.png" class="giraffe" onclick="project('Giraffe','girafee1.jpg','Giraffes are the tallest animals in the world, with long necks that help them reach leaves high up in trees! These gentle giants live in Africa and love to eat leaves, especially from acacia trees. Even though their necks are super long, they have the same number of neck bones as humans—just much bigger! Giraffes have beautiful spotted coats, and no two giraffes have the same pattern, just like human fingerprints. They can run fast, up to 35 miles per hour, and use their powerful legs to kick predators like lions if they need to defend themselves. Baby giraffes, called calves, are born standing up and can walk within an hour of being born! Giraffes sleep very little, sometimes only 30 minutes a day, and they love to be in groups called towers.Their tongues can be up to 18 inches (45 cm) long.','girafeevideo.mp4')">
+    <img src="bellwort.png" class="bellwort" onclick="project('Bellwort','bellwort1.jpg','Bellwort is a pretty wildflower that grows in the woods! It has beautiful, bell-shaped flowers that hang down from its stems, like little bells ringing in the wind. Bellwort blooms in the spring, and its flowers are a yummy source of food for bees and butterflies. This flower is special because it can grow in shady places where other flowers might not be able to grow. Some people even use Bellwort to make medicine to help them feel better when they are sick.Bellwort is one of the few flowers that deer do not like to eat, making it a great choice for gardeners who live in areas with deer.Bellwort blooms in early spring, often in late March or early April, and its flowers last for several weeks.People in the past used it for natural medicine, but today, it is mostly admired for its beauty.It is gentle,delicate flower that touch of sunshine')">
+    <img src="warblers.png" class="warblers" onclick="project('Warblers','warblers2.jpg','Warblers are small,colorful birds known for their beautiful songs and lively personalities.Warblers are tiny, active birds with bright and colorful feathers.They can be found in forests, gardens, and parks, where they flit around searching for insects to eat. Warblers have slender bodies, pointed beaks, and long tails, which make them excellent at catching bugs and spiders. They are known for their sweet, melodic songs, which they use to communicate with each other and attract mates. During migration,warblers travel long distances to find warmer places for the winter. These birds are important for the ecosystem because they help control insect populations and pollinate flowers.With their cheerful songs and vibrant colors,warblers are a delight to watch and listen to.Warblers have a diet of insects,such as caterpillars,beetles,etc.','warblervideo.mp4')">
+    <img src="mountain laurel.png" class="mountain-laurel" onclick="project('Mountain laurel','mountain laurel2.jpg',' Mountain Laurel is a beautiful shrub that grows in the mountains of North America! It has gorgeous, pink and white flowers that look like tiny bells, and they bloom in the spring. Mountain Laurel loves rocky, mountainous areas and grows in clusters, creating a stunning display of color. This shrub is special because it is the state flower of Pennsylvania and Connecticut! Bees and butterflies love Mountain Laurels flowers, and they help pollinate them. But remember, Mountain Laurels leaves and flowers are poisonous, so we shouldnot touch or eat them.Mountain Laurel provides food and shelter for various wildlife, such as deer, turkey, and birds.Bees and butterflies love its flowers, but the plant is poisonous to people and animals if eaten. Even though it looks pretty, it is best to look but not touch!')">
+    <img src="cheetah.png" class="cheetah" onclick="project('Cheetah','Cheetah.png','Cheetahs are the fastest land animals in the world, known for their incredible speed and agility. They can sprint at speeds of up to 70 miles per hour, which is as fast as some cars on the highway! With their long, slender bodies, powerful legs, and distinctive black tear marks under their eyes, cheetahs are perfectly built for speed. These amazing big cats live in parts of Africa and Asia, where they hunt animals like antelopes and gazelles. Unlike other big cats, cheetahs prefer to hunt during the day, using their excellent eyesight to spot their prey. They are also unique because they can not roar like lions and tigers, but they make chirping sounds instead. Each cheetah has a unique pattern of spots on its fur, just like human fingerprints. No two cheetahs look exactly the same.Cheetahs are carnivorous animals.','cheetahvideo.mp4')">
+    <img src="common tailorbird.png" class="Common-Tailorbird" onclick="project('Common Tailorbird','Common Tailorbird.jpg',' The common tailorbird is a small, colorful bird known for its unique nest-building skills.The common tailorbird is a tiny bird with bright green feathers on its back and a reddish-brown cap on its head. It gets its name from its amazing ability to sew leaves together to make its nest. The female tailorbird uses her sharp beak like a needle to stitch leaves with spider webs or plant fibers, creating a safe and cozy home for her eggs. These birds are very active and can be seen hopping around bushes and trees, searching for insects to eat. They have a sweet, melodic song that they use to communicate with each other.Their clever nest-building and cheerful songs make them a delight to watch and listen to.Common tailorbirds have a diet mainly consisting of insects and spiders.','common Tailorbird video.mp4')">
+    <img src="monkey.png" class="monkey" onclick="project('Monkey','monkey2.jpg','Monkeys are playful and intelligent animals that live in forests, jungles, and even mountains! They love to climb trees, swing from branches, and jump around using their strong tails. Some monkeys, like spider monkeys, have long tails that help them hang from trees, while others, like baboons, have short tails and spend more time on the ground. Monkeys eat fruits, nuts, leaves, and even insects, and they are very good at using their hands to grab food. They live in groups called troops, where they play, groom each other, and take care of their babies. Monkeys can make different sounds, gestures, and even facial expressions to talk to each other. Some monkeys, like chimpanzees, are very smart and can even use sticks as tools to find food! Monkeys are fun, curious, and full of energy.','monkey1video.mp4')">
+    <img src="zebra.png" class="zebra" onclick="project('Zebra','zebra3.jpg','Zebras are amazing animals with black and white stripes, making them one of the most unique creatures in the animal kingdom! No two zebras have the same pattern—just like human fingerprints! They live in grasslands and savannas in Africa, where they eat grass all day. Zebras are fast runners and can reach speeds of up to 65 km/h (40 mph) to escape predators like lions. They are also strong kickers and can defend themselves with a powerful kick! Zebras live in groups called herds, where they stay together for protection. They use different sounds, ear movements, and tail swishes to communicate with each other. Even though they look like horses, zebras cannot be ridden because they are wild animals. These striped beauties are an important part of nature and help keep the grasslands healthy!','zebravideo.mp4')">
+    <script>
+        function project(name, img, desc, video) {
+            window.location.href = `project.html?name=${encodeURIComponent(name)}&img=${encodeURIComponent(img)}&desc=${encodeURIComponent(desc)}&video=${encodeURIComponent(video)}`;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+<html>
+  <head>
+    <title>NEPTUNE</title>
+    <style>
+      body {
+        background-color: #000000;
+      }
+      .f {
+        font-family: "Candara";
+      }
+      #heading {
+        position: absolute;
+        top: -5%;
+        left: 43%;
+        font-size: 80px;
+        color: rgb(242, 242, 242);
+        border: #261ca7;
+
+        text-shadow: 0 0 10px rgb(107, 124, 250), 0 0 20px rgb(23, 5, 137),
+          0 0 30px rgb(241, 234, 227), 0 0 30px rgb(243, 231, 229);
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+        text-decoration-color: rgb(247, 247, 249);
+      }
+      #fact {
+        position: absolute;
+        top: 30%;
+        left: 16%;
+        font-size: 20px;
+        color: rgb(255, 255, 255);
+        text-shadow: 0 0 10px rgb(90, 138, 228), 0 0 20px rgb(36, 46, 155),
+          0 0 30px rgb(243, 192, 144), 0 0 30px rgb(246, 226, 193);
+        font-family: "Cooper Black";
+      }
+      #bgVideo {
+        position: fixed;
+        z-index: -1; /* Sends video to the background */
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .c {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .glow-img:hover {
+        border-radius: 50px;
+        box-shadow: 0 0 50px #0022ff, 0 0 100px #cbbc93, 0 0 150px #e5bb14;
+      }
+      #cloud1 {
+        position: absolute;
+        top: -11%;
+        right: 0%;
+        height: 49%;
+        width: 50%;
+      }
+      #cloud2 {
+        position: absolute;
+        top: 32%;
+        right: 0%;
+        height: 38%;
+        width: 38%;
+      }
+      #cloud3 {
+        position: absolute;
+        bottom: 2%;
+        right: 9%;
+        height: 40%;
+        width: 40%;
+      }
+
+      path {
+        fill: rgb(240, 247, 250);
+        stroke: rgb(12, 66, 123);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading">Neptune</p>
+    <!--autoplay won't work unless the video is muted -->
+
+    <p id="fact">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b
+        >I’m Neptune!</b
+      >
+      <br />
+      The eighth and farthest known <br />
+      planet from the Sun. I'm dark, cold, <br />
+      and windy ice giant, known for <br />
+      my distinct blue color due <br />
+      to methane in atmosphere<br />
+    </p>
+    <a href="../../main.html">
+      <img
+        src="BlueBack.png"
+        style="position: absolute; top: -2%; left: 24%"
+        width="150px"
+        height="150px"
+      />
+      <p
+        style="
+          position: absolute;
+          top: 5.9%;
+          left: 28.4%;
+          color: rgb(2, 72, 102);
+          font-size: 11px;
+        "
+      >
+        GO BACK
+      </p>
+    </a>
+    <img src="neptune.png" id="bgVideo" />
+    <div class="c" id="imageContainer">
+      <img src="neptune1.jpg" width="350px" height="270px" id="mainImage" />
+    </div>
+    <button
+      id="nextButton"
+      style="
+        background: none;
+        position: absolute;
+        bottom: 21%;
+        left: 48%;
+        cursor: pointer;
+        border: none;
+      "
+    >
+      <img
+        src="playbuttonBlue.png"
+        width="80px"
+        height="72px"
+        class="glow-img"
+      />
+    </button>
+    <p
+      style="
+        position: absolute;
+        bottom: 10%;
+        left: 34%;
+        color: #f8fefd;
+        font-size: 24px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
+      "
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;ᶜˡⁱᶜᵏ ᵗʰᵉ ᵇᵘᵗᵗᵒⁿ! <br />
+      ᵀʰᵉʳᵉ ʷⁱˡˡ ᵇᵉ ᵃ ˢᵘʳᵖʳⁱˢᵉ <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⁱⁿ ᵗʰᵉ ᵉⁿᵈ.
+    </p>
+
+    <svg viewBox="0 0 105 105" id="cloud1">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="52"
+        font-size="4"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="50" dy="2">It has 14 moons and</tspan>
+        <tspan x="52" dy="10">a system of rings.Neptune has a</tspan>
+        <tspan x="52" dy="11">system of rings, though they are</tspan>
+        <tspan x="52" dy="11">faint and difficult to see</tspan>
+      </text>
+    </svg>
+
+    <svg viewBox="0 0 105 105" id="cloud2">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="64"
+        font-size="5"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">It is the</tspan>
+        <tspan x="52" dy="14">fourth-largest planet</tspan>
+        <tspan x="52" dy="14">in the Solar System</tspan>
+      </text>
+    </svg>
+    <svg viewBox="0 0 105 105" id="cloud3">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="69"
+        font-size="5"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="49" dy="-8">Neptune is named</tspan>
+        <tspan x="46" dy="9">after the Roman god of the sea</tspan>
+        <tspan x="52" dy="9">It is about four times</tspan>
+        <tspan x="52" dy="9">wider than Earth.</tspan>
+      </text>
+    </svg>
+
+    <script>
+      const images = ["neptune1.jpg", "neptune2.png", "neptune3.jpeg"];
+      let currentIndex = 0;
+      const mainImage = document.getElementById("mainImage");
+      const nextButton = document.getElementById("nextButton");
+
+      nextButton.addEventListener("click", function () {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          mainImage.src = images[currentIndex];
+        } else {
+          window.open(
+            "PuzzleNeptune.html",
+            "PuzzleWindow",
+            "width=500,height=400"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

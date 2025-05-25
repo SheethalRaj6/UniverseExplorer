@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fin-Tastic Fish Quiz! 🐠</title>
+    <style>
+        body {
+            background: url("anime.gif") repeat;
+            text-align: center;
+            color: white;
+            font-family: Arial, sans-serif;
+            background-size: cover;
+        }
+        #quizContainer {
+            background: rgba(0, 0, 50, 0.8);
+            padding: 20px;
+            width: 60%;
+            margin: auto;
+            border-radius: 20px;
+        }
+        h1 {
+            color: #ffcc00;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        .option {
+            display: block;
+            background: lightblue;
+            color: darkblue;
+            padding: 10px;
+            margin: 5px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .option:hover {
+            background: deepskyblue;
+            color: white;
+        }
+        #result {
+            font-size: 22px;
+            margin-top: 10px;
+        }
+        #finalScore {
+            font-size: 24px;
+            font-weight: bold;
+            color: yellow;
+        }
+        .hidden {
+            display: none;
+        }
+        #home {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #008CBA; /* Blue button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: inline-block; /* Ensures it's visible */
+            bottom:20px;
+            left: 20px;
+            position:fixed;
+
+}
+    </style>
+</head>
+<body>
+
+    <h1>🌊 Fin-Tastic Fish Quiz! 🐠</h1>
+    <div id="quizContainer">
+        <p class="question" id="questionText"></p>
+        <div id="optionsContainer"></div>
+        <p id="result"></p>
+        <p id="finalScore" class="hidden"></p>
+    </div>
+
+
+
+    <a href="mainuid.html">
+        <button id="home">BACK TO HOME</button>
+    </a>
+
+    <script>
+        const quizData = [
+    {
+        question: "Which fish has sharp fins like little pins and can make grunting sounds underwater?",
+        options: ["Pinfish", "Clownfish", "Butterfly Fish", "Starfish"],
+        answer: "Pinfish"
+    },
+    {
+        question: "Which sea creature has long tentacles and can sting with a gentle touch?",
+        options: ["Jellyfish", "Octopus", "Sea Turtle", "Seahorse"],
+        answer: "Jellyfish"
+    },
+    {
+        question: "Which fish is bright blue, friendly, and was in the movie 'Finding Nemo'?",
+        options: ["Blue Tang", "GloFish", "Siamese Fighting Fish", "Harlequin Filefish"],
+        answer: "Blue Tang"
+    },
+    {
+        question: "Which ocean animal has a shell, swims slowly, and lives a long life?",
+        options: ["Sea Turtle", "Pufferfish", "Dolphin", "Blue Whale"],
+        answer: "Sea Turtle"
+    },
+    {
+        question: "Which fish is tiny but colorful, and loves to fight with others of its kind?",
+        options: ["Siamese Fighting Fish", "Blue Tang", "Octopus", "Starfish"],
+        answer: "Siamese Fighting Fish"
+    }
+];
+
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+
+        const questionText = document.getElementById("questionText");
+        const optionsContainer = document.getElementById("optionsContainer");
+        const resultText = document.getElementById("result");
+        const finalScoreText = document.getElementById("finalScore");
+
+        function loadQuestion() {
+            if (currentQuestionIndex < quizData.length) {
+                const currentQuestion = quizData[currentQuestionIndex];
+                questionText.innerText = currentQuestion.question;
+                optionsContainer.innerHTML = "";
+
+                currentQuestion.options.forEach(option => {
+                    const optionButton = document.createElement("div");
+                    optionButton.classList.add("option");
+                    optionButton.innerText = option;
+                    optionButton.onclick = () => checkAnswer(option, currentQuestion.answer);
+                    optionsContainer.appendChild(optionButton);
+                });
+            } else {
+                showFinalScore();
+            }
+        }
+
+        function checkAnswer(selected, correct) {
+            if (selected === correct) {
+                score++;
+                resultText.innerHTML = "✅ Correct! 🎉";
+            } else {
+                resultText.innerHTML = "❌ Oops! The right answer was: " + correct;
+            }
+            currentQuestionIndex++;
+            setTimeout(() => {
+                resultText.innerHTML = "";
+                loadQuestion();
+            }, 1000);
+        }
+
+        function showFinalScore() {
+            questionText.innerText = "🎊 Quiz Complete! 🎊";
+            optionsContainer.innerHTML = "";
+            finalScoreText.innerHTML = `Final Score: ${score} / ${quizData.length} 🏆`;
+            finalScoreText.classList.remove("hidden");
+        }
+
+        loadQuestion();
+    </script>
+
+</body>
+</html>

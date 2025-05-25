@@ -1,0 +1,111 @@
+#myVideo {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 100%;
+    z-index: -2;
+}
+
+    #home-btn {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        background-color: rgba(156, 219, 255, 0.8);
+        color: #000;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        z-index: 1000;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    #home-btn:hover {
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.moving-image {
+    width: 535px;
+    position: absolute;
+    top: 22%;
+    left: 32%;
+    /*animation: bounce 2s infinite ease-in-out;*/
+}
+
+.head h1{
+font-size: 130px;
+font-family:Bodoni MT Black;
+font-weight: 600;
+display: inline-block;
+position: absolute;
+top: -11%;
+left: 29%;
+background-image: linear-gradient(to left, #65ca92,#028d7a, #006572, #052fa1, #18b3e2, #0d7200,  #81ff70);
+color: transparent;
+background-clip: text;
+-webkit-background-clip: text;
+background-size: 200%;
+background-position: -200%; 
+text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.4);
+animation: animated-gradient 2s infinite alternate-reverse;
+}
+
+@keyframes animated-gradient{
+to{
+background-position: 200%;
+}
+}
+.element:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+  }
+
+
+#lefthand {
+position: absolute;
+top: 60%;
+left:58%;
+z-index: -1;
+}
+
+#righthand{
+position: absolute;
+top: 60%;
+right:60%;
+z-index: -1;
+}
+
+.water {
+    position: absolute;
+    top: 20%;
+    right:8%;
+    z-index: 2;
+    width: 240px;
+    animation: bounce 2s infinite ease-in-out;
+}
+
+#land{
+    position: absolute;
+    top: 14%;
+    left:0%;
+    z-index: 2;
+    width: 450px;
+}
+
+a { display: block; }
+
+#instru {
+    color: rgba(240, 248, 255, 0.301); 
+    font-family: 'Courier New', Courier, monospace;
+    position: absolute;
+    bottom: 0%;
+    left: 20%;
+}

@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <title>Moon Puzzle</title>
+    <style>
+      body {
+        color: rgb(255, 255, 255);
+        text-align: center;
+        background-color: rgb(41, 113, 142);
+      }
+      .puzzle-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 5px;
+        width: 300px;
+        margin: auto;
+      }
+      .piece {
+        width: 145px;
+        height: 145px;
+        border: 2px solid black;
+        cursor: grab;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Drag & Drop Puzzle</h2>
+    <div class="puzzle-container" id="puzzleContainer">
+      <img src="moonpuz2.png" class="piece" draggable="true" id="piece2" />
+      <img src="moonpuz3.png" class="piece" draggable="true" id="piece3" />
+      <img src="moonpuz1.png" class="piece" draggable="true" id="piece1" />
+      <img src="moonpuz4.png" class="piece" draggable="true" id="piece4" />
+    </div>
+
+    <script>
+      const pieces = document.querySelectorAll(".piece");
+      const correctOrder = [
+        "moonpuz1.png",
+        "moonpuz2.png",
+
+        "moonpuz3.png",
+        "moonpuz4.png",
+      ];
+      let draggedPiece = null;
+
+      pieces.forEach((piece) => {
+        piece.addEventListener("dragstart", dragStart);
+        piece.addEventListener("dragover", dragOver);
+        piece.addEventListener("drop", drop);
+      });
+
+      function dragStart(event) {
+        draggedPiece = event.target;
+      }
+
+      function dragOver(event) {
+        event.preventDefault(); // Allow dropping
+      }
+
+      function drop(event) {
+        event.preventDefault();
+        if (event.target.classList.contains("piece")) {
+          // Swap images
+          let tempSrc = event.target.src;
+          event.target.src = draggedPiece.src;
+          draggedPiece.src = tempSrc;
+        }
+
+        // Get the current order of images
+        let currentOrder = Array.from(document.querySelectorAll(".piece")).map(
+          (img) => img.src.substring(img.src.lastIndexOf("/") + 1)
+        );
+
+        // Check if the order is correct
+        let isCorrect = true;
+        for (let i = 0; i < correctOrder.length; i++) {
+          if (currentOrder[i] !== correctOrder[i]) {
+            isCorrect = false;
+            break;
+          }
+        }
+
+        // If all pieces are in the correct order, show the success message
+        if (isCorrect) {
+          setTimeout(() => {
+            alert(" Congratulations! You solved the puzzle!");
+          }, 200);
+        }
+      }
+    </script>
+  </body>
+</html>

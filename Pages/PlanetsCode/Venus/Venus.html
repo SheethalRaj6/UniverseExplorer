@@ -1,0 +1,251 @@
+<html>
+  <head>
+    <title>Venus</title>
+    <style>
+      body {
+        background-color: rgb(0, 0, 0);
+      }
+      .f {
+        font-family: "Candara";
+      }
+      #heading {
+        position: absolute;
+        top: -5%;
+        left: 44%;
+        font-size: 80px;
+        color: rgb(152, 16, 1);
+        border: #261ca7;
+
+        text-shadow: 0 0 10px rgb(245, 148, 37), 0 0 20px rgb(235, 185, 76),
+          0 0 30px rgb(237, 180, 130), 0 0 30px rgb(247, 167, 152);
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+        text-decoration-color: rgb(230, 119, 63);
+      }
+      #fact {
+        position: absolute;
+        top: 36%;
+        left: 10%;
+        font-size: 25px;
+        color: rgb(241, 41, 10);
+        text-shadow: 0 0 10px rgb(246, 246, 10), 0 0 20px rgb(237, 238, 243),
+          0 0 30px rgb(200, 219, 129), 0 0 30px rgb(246, 226, 193);
+        font-family: "Cooper Black";
+      }
+      #bgVideo {
+        position: fixed;
+        z-index: -1; /* Sends video to the background */
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .c {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .glow-img:hover {
+        border-radius: 50px;
+        box-shadow: 0 0 50px #fff700, 0 0 100px #cbbc93, 0 0 150px #ffcc00;
+      }
+      #cloud1 {
+        position: absolute;
+        top: -11%;
+        right: 0%;
+        height: 49%;
+        width: 50%;
+      }
+      #cloud2 {
+        position: absolute;
+        top: 32%;
+        right: 0%;
+        height: 38%;
+        width: 38%;
+      }
+      #cloud3 {
+        position: absolute;
+        bottom: 2%;
+        right: 9%;
+        height: 40%;
+        width: 40%;
+      }
+
+      path {
+        fill: rgb(243, 121, 7);
+        stroke: rgb(251, 44, 12);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading">VENUS</p>
+    <!--autoplay won't work unless the video is muted -->
+
+    <p id="fact">
+      &nbsp;&nbsp;&nbsp;&nbsp;I’m Venus! <br />
+      our solar system's hottest <br />
+      &nbsp; planet, I'm a rocky world with <br />
+      &nbsp;&nbsp; a thick, cloudy atmosphere.
+    </p>
+    <a href="../../main.html">
+      <img
+        src="goBack.png"
+        style="position: absolute; top: -2%; left: 24%"
+        width="150px"
+        height="150px"
+      />
+      <p
+        style="
+          position: absolute;
+          top: 4%;
+          left: 26.3%;
+          color: rgb(247, 189, 17);
+          font-size: 16px;
+        "
+      >
+        GO ᗷᗩᑕK
+      </p>
+    </a>
+    <img src="venus.png" id="bgVideo" />
+    <div class="c" id="imageContainer">
+      <img src="venus1.jpg" width="350px" height="270px" id="mainImage" />
+    </div>
+    <button
+      id="nextButton"
+      style="
+        background: none;
+        position: absolute;
+        bottom: 21%;
+        left: 48%;
+        cursor: pointer;
+        border: none;
+      "
+    >
+      <img
+        src="playbuttonsunnew.png"
+        width="80px"
+        height="72px"
+        class="glow-img"
+      />
+    </button>
+    <p
+      style="
+        position: absolute;
+        bottom: 10%;
+        left: 34%;
+        color: #e1ff00;
+        font-size: 24px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
+      "
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;ᶜˡⁱᶜᵏ ᵗʰᵉ ᵇᵘᵗᵗᵒⁿ! <br />
+      ᵀʰᵉʳᵉ ʷⁱˡˡ ᵇᵉ ᵃ ˢᵘʳᵖʳⁱˢᵉ <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⁱⁿ ᵗʰᵉ ᵉⁿᵈ.
+    </p>
+
+    <svg viewBox="0 0 105 105" id="cloud1">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="4"
+        fill="yellow"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="50" dy="2">Venus is the brightest planet</tspan>
+        <tspan x="52" dy="14">in our night sky, after the moon,</tspan>
+        <tspan x="52" dy="14">and is sometimes called the "Morning Star"</tspan>
+        <tspan x="52" dy="14">or "Evening Star" because it's so visible.</tspan>
+      </text>
+    </svg>
+
+    <svg viewBox="0 0 105 105" id="cloud2">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="6"
+        fill="yellow"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">Venus doesn't have</tspan>
+        <tspan x="52" dy="14">any moons, making it a lonely</tspan>
+        <tspan x="52" dy="14">planet in space, along with Mercury</tspan>
+      </text>
+    </svg>
+    <svg viewBox="0 0 105 105" id="cloud3">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="65"
+        font-size="5"
+        fill="yellow"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="45" dy="-7">Venus and Uranus</tspan>
+        <tspan x="46" dy="9">are the only planets in our</tspan>
+        <tspan x="52" dy="11">Solar System that rotates clockwise.</tspan>
+        <tspan x="52" dy="14">There are yellow clouds on Venus.</tspan>
+      </text>
+    </svg>
+
+    <script>
+      const images = [
+        "venus1.jpg",
+        "venus2.jpeg",
+        "venus3.jpg",
+        "venus4.jpeg",
+        "venus5.jpg",
+        "venus6.png",
+      ];
+      let currentIndex = 0;
+      const mainImage = document.getElementById("mainImage");
+      const nextButton = document.getElementById("nextButton");
+
+      nextButton.addEventListener("click", function () {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          mainImage.src = images[currentIndex];
+        } else {
+          window.open(
+            "PuzzleVenus.html",
+            "PuzzleWindow",
+            "width=500,height=400"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>

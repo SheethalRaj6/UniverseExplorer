@@ -1,0 +1,295 @@
+<html>
+  <head>
+    <title>Login</title>
+    <style>
+      body {
+        background: url("loginBackground4.jpg");
+        background-position: center;
+        background-size: cover;
+        padding: 0 20px;
+      }
+
+      .formContainer {
+        box-shadow: 0 0 50px #70ffb0ab, 0 0 100px #f8f6f5e4, 0 0 150px #f7f4f4;
+        position: absolute;
+        top: 15%;
+        right: 5%;
+        box-sizing: border-box;
+        display: flex;
+        width: 860px;
+        height: 480px;
+        border: 1px solid rgba(238, 255, 5, 0.18);
+        border-radius: 38px;
+        backdrop-filter: blur(5px);
+      }
+      .inside1 {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        background: rgba(132, 156, 242, 0.362);
+        backdrop-filter: blur(38px);
+        border-radius: 8% 32% 24% 8%;
+      }
+      #sentence {
+        color: rgba(182, 229, 229, 0.951);
+        font-size: 17px;
+
+        position: absolute;
+        bottom: 10%;
+        left: 12%;
+      }
+      .image {
+        position: absolute;
+        top: 29%;
+        left: 30%;
+      }
+      #hea {
+        position: absolute;
+        top: 2%;
+        right: 16%;
+        text-shadow: 0 0 50px #e48136, 0 0 100px #ddbd77, 0 0 150px #c8aa76,
+          0 0 50px #f1b760, 0 0 50px #f1b560;
+        font-size: 50px;
+
+        color: rgb(255, 255, 255);
+      }
+      .inside2 {
+        position: absolute;
+        top: 33%;
+        right: 7%;
+        font-size: 20px;
+        color: rgb(186, 194, 250);
+        font-weight: bold;
+      }
+      #error-msg {
+        transition: opacity 0.3s ease;
+      }
+      .inp {
+        background: rgba(36, 133, 223, 0.727);
+        box-shadow: 0 0 100px #ff9900db, 0 0 100px #f8f6f5e4, 0 0 150px #f7f4f4;
+        border: none;
+        font-family: "Cooper Black";
+        color: rgb(175, 240, 240);
+        padding: 20px 30px;
+        border-radius: 30px;
+      }
+      #inp1 {
+        font-family: "Cooper Black";
+        color: rgb(175, 240, 240);
+        padding: 8px 18px;
+        border-color: rgba(97, 228, 235, 0.973);
+        background: rgba(34, 132, 223, 0.679);
+        box-shadow: 0 0 50px #fcbf44, 0 0 100px #f8f6f5e4, 0 0 150px #f7f4f4;
+        border-radius: 30px;
+      }
+      #inp2 {
+        font-family: "Cooper Black";
+        color: rgb(175, 240, 240);
+        padding: 8px 18px;
+        border-color: rgba(97, 228, 235, 0.973);
+        background: rgba(34, 132, 223, 0.679);
+        box-shadow: 0 0 50px #fcbf44, 0 0 100px #f8f6f5e4, 0 0 150px #f7f4f4;
+        border-radius: 39px;
+      }
+      ::placeholder {
+        color: #f7f2f7;
+      }
+      .logo-overlay {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        animation: moveLogoToForm 1.2s ease-out forwards;
+        pointer-events: none; /* So it doesn't block clicks */
+      }
+
+      .logo-container {
+        width: 250px;
+        height: 250px;
+        transform: scale(3);
+        opacity: 0;
+        animation: zoomOutLogo 2s ease-out forwards;
+      }
+
+      @keyframes zoomOutLogo {
+        0% {
+          transform: scale(3);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+
+      @keyframes moveLogoToForm {
+        0% {
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+        100% {
+          top: 29%; /* Match your .image div */
+          left: 30%;
+          transform: translate(0, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="formContainer">
+      <div class="inside1">
+        <!--logo code-->
+        <div class="logo-overlay">
+          <div class="logo-container">
+            <svg width="200" height="200" viewBox="0 0 200 200">
+              <clipPath id="logoClip">
+                <circle cx="100" cy="100" r="90" />
+              </clipPath>
+
+              <clipPath id="circle1">
+                <circle cx="75" cy="75" r="30" />
+              </clipPath>
+              <clipPath id="circle2">
+                <circle cx="125" cy="75" r="30" />
+              </clipPath>
+              <clipPath id="circle3">
+                <circle cx="75" cy="125" r="30" />
+              </clipPath>
+              <clipPath id="circle4">
+                <circle cx="125" cy="125" r="30" />
+              </clipPath>
+              <clipPath id="centerClip">
+                <circle cx="100" cy="100" r="20" />
+              </clipPath>
+
+              <g clip-path="url(#logoClip)">
+                <rect width="200" height="200" fill="black" />
+                <circle cx="15" cy="20" r="1" fill="white" />
+                <circle cx="65" cy="90" r="0.6" fill="white" />
+                <circle cx="110" cy="40" r="0.5" fill="white" />
+                <circle cx="130" cy="75" r="0.9" fill="white" />
+                <circle cx="100" cy="30" r="0.6" fill="white" />
+                <circle cx="160" cy="60" r="1" fill="white" />
+                <circle cx="170" cy="100" r="0.7" fill="white" />
+                <circle cx="190" cy="90" r="0.8" fill="white" />
+                <circle cx="140" cy="160" r="0.7" fill="white" />
+                <circle cx="70" cy="165" r="1" fill="white" />
+                <circle cx="40" cy="150" r="0.8" fill="white" />
+                <circle cx="25" cy="100" r="1" fill="white" />
+                <circle cx="35" cy="80" r="0.7" fill="white" />
+                <circle cx="50" cy="60" r="1.1" fill="white" />
+              </g>
+
+              <circle
+                cx="100"
+                cy="100"
+                r="78"
+                stroke="#019253"
+                stroke-width="3"
+                fill="none"
+              />
+              <circle cx="75" cy="75" r="30" fill="#5ffffae9" />
+              <circle cx="125" cy="75" r="30" fill="#822f00ba" />
+              <circle cx="75" cy="125" r="30" fill="#5fffb7d4" />
+              <circle cx="125" cy="125" r="30" fill="#2D2D90" />
+
+              <image
+                href="img1.png"
+                x="45"
+                y="45"
+                width="69"
+                height="69"
+                clip-path="url(#circle1)"
+              />
+              <image
+                href="img2.png"
+                x="97"
+                y="45"
+                width="52"
+                height="52"
+                clip-path="url(#circle2)"
+              />
+              <image
+                href="img3.png"
+                x="45"
+                y="95"
+                width="60"
+                height="60"
+                clip-path="url(#circle3)"
+              />
+              <image
+                href="img4.png"
+                x="95"
+                y="95"
+                width="60"
+                height="60"
+                clip-path="url(#circle4)"
+              />
+              <image
+                href="girl6.png"
+                x="80"
+                y="80"
+                width="40"
+                height="40"
+                clip-path="url(#centerClip)"
+              />
+            </svg>
+          </div>
+        </div>
+        <!--logo code end-->
+        <p align="center" id="sentence">
+          Welcome Young Mind! Let's Explore our universe
+        </p>
+      </div>
+      <p id="hea">LOGIN</p>
+      <div class="inside2">
+        NAME:&nbsp;&nbsp;
+        <input
+          type="text"
+          name="name"
+          id="inp1"
+          placeholder="Username"
+          required
+        />
+        <br /><br /><br />
+        AGE:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="text" name="age" placeholder="Age" id="inp2" />
+        <br /><br /><br /><br />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input
+          type="button"
+          value="Instructions"
+          class="inp"
+          onclick="saveUsernameAndRedirect('instructions.html')"
+        />
+      </div>
+      <div
+        id="error-msg"
+        style="
+          color: #ff7b7b;
+          font-family: 'Courier New', Courier, monospace;
+          margin-top: 10px;
+          font-weight: bold;
+        "
+      ></div>
+    </div>
+    <script>
+      function saveUsernameAndRedirect(page) {
+        let username = document.getElementById("inp1").value;
+        const errorMsg = document.getElementById("error-msg");
+        if (username.trim() === "" || !/[a-zA-Z]+/.test(username.trim())) {
+          errorMsg.textContent = "Please enter your name! (only letters)";
+          usernameInput.focus();
+
+          return;
+        }
+        errorMsg.textContent = "";
+        localStorage.setItem("username", username);
+        window.location.href = page;
+      }
+    </script>
+  </body>
+</html>

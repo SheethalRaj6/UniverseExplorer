@@ -1,0 +1,253 @@
+<html>
+  <head>
+    <title>Sun</title>
+    <style>
+      body {
+        background-color: rgb(0, 0, 0);
+      }
+      .f {
+        font-family: "Candara";
+      }
+      #heading {
+        position: absolute;
+        top: -9%;
+        left: 45%;
+        font-size: 100px;
+        color: rgb(245, 243, 240);
+        border: #ff6600;
+
+        text-shadow: 0 0 10px rgb(246, 127, 37), 0 0 20px rgb(235, 156, 76),
+          0 0 30px rgb(237, 198, 130), 0 0 30px rgb(246, 226, 193);
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+        text-decoration-color: rgb(248, 248, 77);
+      }
+      #fact {
+        position: absolute;
+        top: 36%;
+        left: 21%;
+        font-size: 28px;
+        color: rgb(249, 249, 158);
+        text-shadow: 0 0 10px rgb(240, 216, 112), 0 0 20px rgb(225, 210, 127),
+          0 0 30px rgb(237, 198, 130), 0 0 30px rgb(246, 226, 193);
+        font-family: "Cooper Black";
+      }
+      #bgVideo {
+        position: fixed;
+        z-index: -1; 
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .c {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .glow-img:hover {
+        border-radius: 50px;
+        box-shadow: 0 0 50px #ff6600, 0 0 100px #ff3300, 0 0 150px #ff0000;
+      }
+      #cloud1 {
+        position: absolute;
+        top: -11%;
+        right: 0%;
+        height: 49%;
+        width: 50%;
+      }
+      #cloud2 {
+        position: absolute;
+        top: 32%;
+        right: 0%;
+        height: 38%;
+        width: 38%;
+      }
+      #cloud3 {
+        position: absolute;
+        bottom: 2%;
+        right: 9%;
+        height: 40%;
+        width: 40%;
+      }
+
+      path {
+        fill: rgb(243, 231, 7);
+        stroke: rgb(251, 127, 12);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading">𝓢𝓤𝓝</p>
+    <!--autoplay won't work unless the video is muted -->
+
+    <p id="fact">
+      &nbsp;&nbsp;&nbsp;&nbsp;I’m Sun! <br />
+      I’m the biggest star<br />
+      &nbsp;&nbsp;in our Solar System.
+    </p>
+    <a href="../../main.html">
+      <img
+        src="goBack.png"
+        style="position: absolute; top: -2%; left: 24%"
+        width="150px"
+        height="150px"
+      />
+      <p
+        style="
+          position: absolute;
+          top: 4%;
+          left: 26.3%;
+          color: rgb(247, 189, 17);
+          font-size: 16px;
+        "
+      >
+        GO ᗷᗩᑕK
+      </p>
+    </a>
+    <video id="bgVideo" autoplay muted loop>
+      <source src="videoplay.mp4" type="video/mp4" />
+      Video not supported
+    </video>
+    <div class="c" id="imageContainer">
+      <img src="newSunSmile.png" width="370px" height="290px" id="mainImage" />
+    </div>
+    <button
+      id="nextButton"
+      style="
+        background: none;
+        position: absolute;
+        top: 69%;
+        left: 48%;
+        cursor: pointer;
+        border: none;
+      "
+    >
+      <img
+        src="playbuttonsunnew.png"
+        width="72px"
+        height="72px"
+        class="glow-img"
+      />
+    </button>
+    <p
+      style="
+        position: absolute;
+        bottom: 10%;
+        left: 34%;
+        color: #ff6600;
+        font-size: 24px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
+      "
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;ᶜˡⁱᶜᵏ ᵗʰᵉ ᵇᵘᵗᵗᵒⁿ! <br />
+      ᵀʰᵉʳᵉ ʷⁱˡˡ ᵇᵉ ᵃ ˢᵘʳᵖʳⁱˢᵉ <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⁱⁿ ᵗʰᵉ ᵉⁿᵈ.
+    </p>
+
+    <svg viewBox="0 0 105 105" id="cloud1">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="6"
+        fill="red"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">The sun is the</tspan>
+        <tspan x="52" dy="14">center of solar system</tspan>
+        <tspan x="52" dy="14">The Sun's gravity holds our Solar</tspan>
+        <tspan x="52" dy="14">System together</tspan>
+      </text>
+    </svg>
+
+    <svg viewBox="0 0 105 105" id="cloud2">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="6"
+        fill="red"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">The sun is a giant,</tspan>
+        <tspan x="52" dy="14">hot ball of gas, our closest</tspan>
+        <tspan x="52" dy="14">star and the source of light and</tspan>
+        <tspan x="52" dy="14">heat for Earth</tspan>
+      </text>
+    </svg>
+    <svg viewBox="0 0 105 105" id="cloud3">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="5"
+        fill="red"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="43" dy="-7">The planets</tspan>
+        <tspan x="44" dy="9">which orbit</tspan>
+        <tspan x="52" dy="11">around the Sun are Mercury,</tspan>
+        <tspan x="52" dy="14">Venus, Earth, Mars, Jupiter, Saturn,</tspan>
+        <tspan x="52" dy="14">Uranus and Neptune.</tspan>
+      </text>
+    </svg>
+
+    <script>
+      const images = [
+        "newSunSmile.png",
+        "laughsun.png",
+
+        "SunImage.jpg",
+        "sunset.jpeg",
+        "sunrise.jpeg",
+        "sunimg4.jpg",
+        "smilingsun.png",
+      ];
+      let currentIndex = 0;
+      const mainImage = document.getElementById("mainImage");
+      const nextButton = document.getElementById("nextButton");
+
+      nextButton.addEventListener("click", function () {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          mainImage.src = images[currentIndex];
+        } else {
+          window.open("PuzzleSun.html", "PuzzleWindow", "width=500,height=400");
+        }
+      });
+    </script>
+  </body>
+</html>

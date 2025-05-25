@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Underwater Animation</title>
+    <style>
+        body {
+
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: url("bg.webp") repeat-x;
+            
+            
+            animation: waveMotion 5s infinite linear;
+            background-size:100% auto;
+            background-position: bottom;
+            
+            
+        }
+
+        .fish {
+            position: absolute;
+            width: 150px;
+            will-change: transform;
+        }
+
+        /* Fish moving left to right */
+        .fish-ltr {
+            animation: swim-ltr linear infinite;
+            transform: scaleX(-1); /* Ensure normal facing */
+        }
+
+        /* Fish moving right to left */
+        .fish-rtl {
+            animation: swim-rtl linear infinite;
+            transform: scaleX(-1); /* Ensure flipped direction */
+        }
+
+        /* Different heights & speeds for realism */
+        .fish1 { top: 26%; animation-duration: 16s; width: 200px; }
+        .fish2 { top: 45%; animation-duration: 48s; width: 190px; }
+        .fish3 { top: 8%; animation-duration: 22s; width: 200px; }
+        .fish4 { top: 50%; animation-duration: 14s; width: 140px; }
+        .fish5 { top: 70%; animation-duration: 35s; width: 220px; }
+        .fish6 { top: 13%; animation-duration: 38s; width: 220px; }
+        .fish7 { top: 24%; animation-duration: 25s; width: 180px; }
+        .fish8 { top: 80%; animation-duration: 45s; width: 240px; }
+        .fish9 { top: 48%; animation-duration: 28s; width: 180px; }
+        .fish10 { top: 10%; animation-duration: 17s; width: 170px; }
+        .fish11 { top: 60%; animation-duration: 17s; width: 520px; }
+        .fish12 { top: 77%; animation-duration: 19s; width: 170px; }
+        .fish13 { top: 38%; animation-duration: 19s; width: 220px; }
+        .fish14 { top: 20%; animation-duration: 34s; width: 220px; }
+        .fish15 { top: 27%; animation-duration: 12s; width: 180px; }
+        .fish16 { top: 6%; animation-duration: 22s; width: 260px; }
+
+
+
+        /* Keyframes for Left to Right */
+        @keyframes swim-ltr {
+            from { left: -200px; }
+            to { left: 100vw; }
+        }
+
+        /* Keyframes for Right to Left */
+        @keyframes swim-rtl {
+            from { right: -150px; }
+            to { right: 100vw; }
+        }
+        @keyframes waveMotion {
+            0% { background-position: 0 0; }
+           
+            100% { background-position: -200px -100px; }
+            
+        }
+        
+        .bubble {
+           position: absolute;
+           bottom: 0;
+           background: rgba(255, 255, 255, 0.6);
+           border-radius: 50%;
+           opacity: 0.8;
+           animation: rise 4s linear infinite;
+        }
+
+        @keyframes rise {
+           0% { transform: translateY(0); opacity: 1; }
+           100% { transform: translateY(-500px); opacity: 0; }
+        }
+        @keyframes lightRefraction {
+              0% { opacity: 0.5; transform: translateY(0px); }
+              50% { opacity: 0.7; transform: translateY(10px); }
+              100% { opacity: 0.5; transform: translateY(0px); }
+        }
+
+        .light {
+         position: absolute;
+         width: 100vw;
+         height: 100vh;
+        background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 70%);
+        animation: lightRefraction 5s infinite alternate ease-in-out;
+        pointer-events: none;
+       }
+       @keyframes ripple {
+          0% { transform: scale(1); opacity: 0.5; }
+          100% { transform: scale(10); opacity: 0; }
+        }
+
+       .ripple {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: ripple 1s linear;
+        }
+        .coral {
+            width:250px;
+            height: 200px;
+            top:1500px;
+            position: fixed;
+            bottom: 0; /* Sticks to the bottom */
+            top:550px;
+            left:1290px;
+    
+}
+         .coral2 {
+            width:250px;
+            height: 300px;
+            top:1400px;
+            position: fixed;
+            bottom: 0; /* Sticks to the bottom */
+            top:550px;
+            transform: scaleX(-1);
+            
+    
+}
+
+
+#home {
+            margin-top: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #008CBA; /* Blue button */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            display: inline-block; /* Ensures it's visible */
+            bottom:20px;
+            left: 20px;
+            position:fixed;
+
+}
+
+      
+        
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Left to Right Fish (Facing Right) -->
+
+    <img 
+    src="pinfish-Photoroom.png" 
+    class="fish fish-ltr fish1" 
+    onclick="showFishDetails(
+        'Pinfish',
+        'pinfish.jpg',
+        `📖 About the Pinfish
+        Pinfish are small, shiny fish that live in warm ocean waters.
+        They get their name because of the sharp spines on their fins that look like little pins!
+        
+        🤯 Fun Fact!
+        Pinfish can make a grunting sound using their teeth and air bladders — it's like they're talking underwater!
+        
+        🌟 Cool Bonus Info
+        Even though they're tiny, pinfish are super fast swimmers and great at hiding in sea grass!`
+        ,
+        ['pinfish1.png', 'pinfish2.png', 'pinfish3.png']
+    )"
+>
+     <img src="jelly fish-Photoroom.png" class="fish fish-ltr fish2"  onclick="showFishDetails(
+        'Jellyfish', 
+        'jellyfish.png', 
+        `
+        🪼 JELLYFISH
+📖 About the Jellyfish
+Jellyfish are soft, squishy sea creatures that look like floating umbrellas!
+They don’t have bones, brains, or even a heart — but they’ve been around for millions of years!
+
+🤯 Fun Fact!
+Jellyfish can glow in the dark! Some of them have special lights in their bodies called bioluminescence. 💡🌊
+
+🌟 Cool Bonus Info
+Jellyfish use their long tentacles to sting and catch food — but don’t worry, not all jellyfish stings hurt humans!
+They drift with the ocean currents like magical sea balloons. 🎈🌊.`
+,
+['jelly1.png','jelly2.png'])">
+    <img src="siamese fighting fish-Photoroom.png" class="fish fish-ltr fish3"  onclick="showFishDetails(
+        'Siamese Fighting Fish', 
+        'siamese fighting fish-Photoroom.png', 
+        `
+        🐠 SIAMESE FIGHTING FISH
+📖 About the Siamese Fighting Fish
+These beautiful, colorful fish are also known as Betta fish!
+They come in many bright colors and have long, flowing fins that look like underwater ribbons! 🎀🌈
+
+🤯 Fun Fact!
+Male Siamese Fighting Fish love to show off!
+They puff up their gills and spread their fins wide when they see another fish — it's like a fishy fashion show! 💃🐟
+
+🌟 Cool Bonus Info
+Even though they are called ,fighting fish, they are super friendly to humans and make awesome little pets.
+They can even remember people and learn to follow your finger across the glass! 😄👆`
+,
+['sias1.png','sias2.png','sias3.png','sias4.png'])">
+    <img src="Blue_tang-removebg-preview.png" class="fish fish-ltr fish4" onclick="showFishDetails(
+        'Blue Tang Fish',
+         'Blue tang.png', 
+         `
+         🐟 BLUE TANG
+📖 About the Blue Tang
+Blue Tangs are bright blue fish with a yellow tail — you might know one named Dory! 🐠
+They live in coral reefs and love swimming around colorful underwater worlds. 🌊🏝️
+
+🤯 Fun Fact!
+When Blue Tangs feel scared, they can hide in tight spaces and even play dead for a moment — peekaboo, fishy-style! 👀😆
+
+🌟 Cool Bonus Info
+Their bright colors help protect the coral reef by warning predators — they’re tiny reef heroes in disguise! 🦸‍♀️🐟
+And guess what? Even though Dory is forgetful in the movie, real Blue Tangs are pretty smart!`
+,
+['bluetang1.png','bluetang2.png','bluetang3.png'])">
+    <img src="Harlequin Filefish-Photoroom.png" class="fish fish-ltr fish9" onclick="showFishDetails('Harlequin Filefish', 
+    'HarlequinFilefish.png', 
+    `🐟 HARLEQUIN FILEFISH
+📖 About the Harlequin Filefish
+Harlequin Filefish are fancy, spotted fish that look like they're wearing polka-dot pajamas! 😄
+They live around coral reefs and blend in so well — it's like playing hide-and-seek in the ocean! 🌊🎯
+
+🤯 Fun Fact!
+These fish can change their color to match the coral around them. Its their magical invisibility trick! 🪄🎨
+
+🌟 Cool Bonus Info
+They love to eat soft coral and use their tiny mouths to nibble like little underwater artists.
+And guess what? They even smell like the coral they eat — it helps them stay safe from predators! 😮👃✨`
+,
+['file1.png','file2.png','file3.png'])">
+    <img src="powder blue tang-Photoroom.png" class="fish fish-ltr fish10" onclick="showFishDetails(
+        'Powder Blue Tang', 'powderbluetang.jpg',
+        `🐠 POWDER BLUE TANG
+📖 About the Powder Blue Tang
+The Powder Blue Tang is a bright, cheerful fish with a shiny blue body, a yellow fin like a crown, and a cute little face! 👑💙
+They live in warm coral reefs and love swimming around like ocean dancers! 🌊💃
+
+🤯 Fun Fact!
+Even though they’re peaceful, they use their sharp tail spine to protect themselves — like a secret sword hidden in their tail! 🗡🐟
+
+🌟 Cool Bonus Info
+These fish are super helpful — they clean algae off the coral, like little underwater gardeners! 🌿🧽
+And guess what? They’re the real-life version of “Dory” from Finding Nemo’s cousin family! 🎬🐠💙`
+,
+['powder1.png','powder2.png','powder3.png'])">
+    <img src="silver.png" class="fish fish-ltr fish13" onclick="showFishDetails(
+        'Bonito (Skipjack Tuna) ',
+     'silver.png', 
+     `📖 About the Bonito Fish
+Bonito fish are sleek, shiny, and super fast swimmers! They love to zoom through the ocean in large groups, hunting for small fish and squid. Their streamlined bodies help them glide through the water like underwater rockets! 🚀🐟
+
+🤯 Fun Fact!
+Bonito fish can swim at speeds of up to 40 miles per hour (64 km/h)—almost as fast as a car on a highway! 🏎💨
+
+🌟 Cool Bonus Info
+Some bonito fish have special muscles that keep their body warmer than the water around them, helping them move even faster in the ocean! 🏊‍♂️🔥
+     `
+     ,
+     ['sil1.png','sil2.png','sil3.png'])">
+    <img src="seahorse.png" class="fish fish-ltr fish14" onclick="showFishDetails(
+        'SeaHorse', 
+        'seahorse.png', 
+        `
+        📖 About the Sea Horse
+Sea horses are tiny, magical-looking fish with curly tails and long snouts! Unlike most fish, they don’t swim fast—they drift slowly, holding onto sea plants with their tails. They love to hide in coral reefs and seaweed! 🌿🐠
+
+🤯 Fun Fact!
+Sea horses are the only fish where the daddy carries the babies instead of the mommy! The male sea horse has a pouch where baby sea horses grow until they are ready to swim on their own. 🤰🐴
+
+🌟 Cool Bonus Info
+Sea horses don’t have teeth or a stomach! Instead, they suck up tiny shrimp and plankton like a vacuum cleaner. Since food moves through them quickly, they have to eat all day long! 🍽🌊`
+,
+['seahorse1.png','seahorse2.png','seahorse3.png'])">
+    <img src="tropical.png" class="fish fish-ltr fish15" onclick="showFishDetails('Tropical Fish', 
+    'tropical.png', 
+    `
+    📖 About the Tropical Fish
+Tropical fish are some of the most colorful fish in the ocean! 🌈🐠 They live in warm waters, usually near coral reefs, where they swim among bright sea plants and playful sea creatures.
+
+🤯 Fun Fact!
+Some tropical fish can change colors to blend in with their surroundings—just like a chameleon! This helps them hide from predators. 🎨🔍
+
+🌟 Cool Bonus Info
+Many tropical fish have special fins that let them swim super fast, helping them escape from predators in a flash! Some even have tiny teeth to nibble on coral and plants. 🦷🏝`
+,
+['tropical1.png','tropical2.png','tropical3.png'])">
+<div class="light"></div>
+    
+    
+
+
+
+    <!-- Right to Left Fish (Facing Left) -->
+    <img src="blue%20ringed%20octopus-Photoroom.png" class="fish fish-rtl fish5" onclick="showFishDetails('Octopus', 
+    'octopus.png', 
+    `
+    📖 About the Octopus
+Octopuses are super smart sea creatures with eight wiggly arms! 🐙 They live in the ocean, hiding in rocks and coral reefs. Each arm has tiny suction cups that help them grab food and explore their surroundings.
+
+🤯 Fun Fact!
+Octopuses can change their color and texture to blend in with their surroundings—just like an underwater ninja! 🥷🌊
+
+🌟 Cool Bonus Info
+If an octopus feels threatened, it can squirt out a cloud of ink to escape from danger! 🖤💨 Also, did you know that they have three hearts? That is a lot of love for the ocean! 💙💙💙`
+,
+['octopus1.png','octopus2.png','octopus3.png'])">
+    <img src="star fish.png" class="fish fish-rtl fish6" onclick="showFishDetails('Star fish', 
+    'starfish.jpg', 
+    `📖 About the Starfish
+Starfish, also called sea stars, are not really fish! 🌟🐠 They live on the ocean floor and come in many bright colors. Most starfish have five arms, but some can have up to 40! 😲
+
+🤯 Fun Fact!
+If a starfish loses an arm, it can grow it back—just like magic! 🪄✨ Some starfish can even regenerate their whole body from just one arm!
+
+🌟 Cool Bonus Info
+Starfish don’t have a brain or blood, but they use tiny tube feet on their arms to move around. They even have an eye at the end of each arm to see where they’re going! 👀🌊`
+,
+['star1.png','star2.png',])">
+    <img src="Butterfly fish-Photoroom.png" class="fish fish-rtl fish7" onclick="showFishDetails('Butterflyfish', 
+    'Butterflyfish.jpg',
+    `📖 About the Butterflyfish
+Butterflyfish are small, colorful fish that live in coral reefs. 🌈🐠 They have beautiful patterns and look like butterflies of the sea! Their bright colors help them blend in and stay safe from predators.
+
+🤯 Fun Fact!
+Butterflyfish sleep in pairs! 💤💕 They are one of the few fish that stay with one partner for life—just like best friends!
+
+🌟 Cool Bonus Info
+These fish have a fake eye spot on their tail to trick predators! This makes enemies think they're swimming the wrong way, giving them time to escape. 🏃‍♂️💨`
+,
+['butterflyfish1.png','butterflyfish2.png','butterflyfish3.png'])">
+    <img src="turtle-Photoroom.png" class="fish fish-rtl fish8" onclick="showFishDetails('Sea Turtle', 
+    'turtle.jpg', 
+    `📖 About the Sea Turtle
+Sea turtles are gentle ocean travelers that have been swimming in the sea for millions of years! 🌊🐢 They have hard shells to protect them and flipper-like legs that help them glide through the water.
+
+🤯 Fun Fact!
+A baby sea turtle always remembers the beach where it was born! 🏝️💖 When they grow up, they travel thousands of miles but always return to lay their eggs in the same place!
+
+🌟 Cool Bonus Info
+Sea turtles can hold their breath for hours underwater! They are also one of the few reptiles that live in the ocean. 🌊🐢✨`
+,
+['turtle1.png','turtle2.png','turtle3.png'])">
+    <img src="bluewhale-removebg-preview.png" class="fish fish-rtl fish11" onclick="showFishDetails('Blue whale',
+     'bluewhale.jpg', 
+     `📖 About the Blue Whale
+The Blue Whale is the largest animal on Earth — even bigger than the biggest dinosaur! 🐋💙 These gentle giants live in the deep oceans and can grow as long as 3 school buses!
+
+🤯 Fun Fact!
+A blue whales heart is the size of a small car and their tongue weighs as much as an elephant! 😲🚗🐘 Thats huge!
+
+🌟 Cool Bonus Info
+Even though they are massive, blue whales eat tiny creatures called krill 🦐. They can eat up to 4 tons of krill a day just by gulping in ocean water and filtering it through their special mouths! 🌊🍽`
+,
+['blue1.png','blue2.png','blue3.png'])">
+    <img src="glofish-Photoroom.png" class="fish fish-rtl fish12" onclick="showFishDetails('Glo Fish', 
+    'glofish.jpg', 
+    `📖 About the GloFish
+GloFish are small, colorful fish that glow brightly in neon colors like pink, green, orange, and blue! 🎨🐠 They were first created to help scientists study pollution, but now they’re popular as fun, glowing pets for aquariums!
+
+🤯 Fun Fact!
+GloFish don’t need any special paint — their colors come from natural glowing genes found in jellyfish and coral! They glow under blue or black light and look like tiny swimming lanterns! 💡✨
+
+🌟 Cool Bonus Info
+Even though they look magical, GloFish are just as easy to take care of as regular fish — they love clean water, a happy tank, and friends to swim with! 🫧🏡`
+,
+['glo1.png','glo2.png','glo3.png'])">
+    <img src="oceanfish.png" class="fish fish-rtl fish16" onclick="showFishDetails('REEF BUTTERFLYFISH', 
+    'oceanfish.png', 
+    `📖 About the Butterfly Fish
+The Butterfly Fish, known by its scientific name Chaetodon, is a small, beautiful fish that looks like it's wearing a costume! 🎭✨ Its colorful stripes and spots make it look just like a butterfly swimming in the sea! 🐠🦋
+
+They live in warm coral reefs where it's bright and full of life. These fish are super friendly and are often seen swimming in pairs like best friends! 💛💙
+
+🤯 Fun Fact!
+Some Butterfly Fish have a fake eye near their tail to confuse predators! It tricks other sea creatures into thinking they are swimming the wrong way! 😲👀🌀
+
+🌟 Cool Bonus Info
+Butterfly Fish have long, pointy mouths that help them pick food from tiny spaces in coral reefs. And guess what? They talk to each other with little clicking sounds! 🎶🗨️🐟`
+,
+['ocean1.png','ocean2.png','ocean3.png'])">
+   
+    <img src="whitecoral.png" class="coral" onclick="showFishDetails(
+        'WHITE CORALS', 
+        'whitecoral.png', 
+    `📖 About White Corals
+White corals are beautiful, branching structures found in the ocean. 🌊 They are made by tiny animals called polyps that work together to build reefs! 🏝️
+
+🤯 Fun Fact!
+Corals might look like rocks or plants, but they are actually living animals! 🐠🐚
+
+🌟 Cool Bonus Info
+White corals are usually a sign of coral bleaching, which happens when the ocean gets too warm. Healthy corals are colorful, but when stressed, they turn white! ❄️🌡️`)">
+    <img src="coralreef.png" class="coral2" onclick="showFishDetails('CORALS', 
+    'corals.jpg', 
+    `📖 About Colorful Corals
+Corals come in all kinds of colors—brown, green, pink, and even purple! 🌈🪸 These colorful creatures live in warm, shallow oceans and build huge coral reefs where many sea animals live, hide, and play! 🐟🦀🐙
+
+🤯 Fun Fact!
+The bright colors of corals come from tiny algae friends called zooxanthellae living inside them. These algae give the corals food and color! 🌿✨
+
+🌟 Cool Bonus Info
+Corals grow super slowly—only a few centimeters each year—but over time, they can make massive reef worlds that are even visible from space! 🌍🛰️ Isn’t that amazing?`)">>
+      
+      <audio src="seaaudio.mp3" id="seaAudio"  loop></audio>
+
+
+    <a href="mainuid.html">
+        <button id="home">BACK TO HOME</button>
+    </a>
+    
+
+    
+
+    
+    <script>
+         function showFishDetails(name, img, desc, extraImages = []) {
+    // Encode all parameters
+    const encodedName = encodeURIComponent(name);
+    const encodedImg = encodeURIComponent(img);
+    const encodedDesc = encodeURIComponent(desc);
+    const encodedExtraImages = extraImages.map(encodeURIComponent).join(',');
+
+    // Redirect with all parameters
+    window.location.href = `fishdetails.html?name=${encodedName}&img=${encodedImg}&desc=${encodedDesc}&extraImages=${encodedExtraImages}`;
+}
+       
+        function createBubble() {
+           let bubble = document.createElement("div");
+           bubble.classList.add("bubble");
+           document.body.appendChild(bubble);
+           let size = Math.random() * 20 + 10; // Random size
+           bubble.style.width = size + "px";
+           bubble.style.height = size + "px";
+           bubble.style.left = Math.random() * window.innerWidth + "px";
+
+        setTimeout(() => {
+           bubble.remove();
+        }, 4000);
+        }
+
+        setInterval(createBubble, 500);
+        document.addEventListener("click", function(event) {
+            let ripple = document.createElement("div");
+            ripple.className = "ripple";
+            ripple.style.left = event.clientX + "px";
+            ripple.style.top = event.clientY + "px";
+            document.body.appendChild(ripple);
+        
+            setTimeout(() => { ripple.remove(); }, 1000);
+        });
+
+
+        const audio = document.getElementById('seaAudio');
+        let audioPlayed = false;
+
+        function playAudioOnFirstInteraction() {
+            if (!audioPlayed) {
+                audio.play().catch(error => {
+                    console.error("Error playing audio on first interaction:", error);
+                });
+                audioPlayed = true;
+            }
+            // Remove the event listeners after the first interaction
+            document.removeEventListener('mousedown', playAudioOnFirstInteraction);
+            document.removeEventListener('touchstart', playAudioOnFirstInteraction);
+            document.removeEventListener('keydown', playAudioOnFirstInteraction);
+        }
+
+        document.addEventListener('mousedown', playAudioOnFirstInteraction);
+        document.addEventListener('touchstart', playAudioOnFirstInteraction);
+        document.addEventListener('keydown', playAudioOnFirstInteraction);
+
+
+    </script>
+</body>
+</html>

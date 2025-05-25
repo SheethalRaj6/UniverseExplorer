@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Feedback Form</title>
+    <style>
+      body {
+        font-family: Century Gothic;
+        padding: 40px;
+        background: url("feedback.png") no-repeat center center fixed;
+        background-size: cover; /* Shows full image without cropping */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 100vw 103vh;
+      }
+
+      .form-container {
+        max-width: 600px;
+        margin: auto;
+        background: #87b7cb;
+        padding: 30px 40px;
+        border-radius: 16px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-container h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        color: #333;
+      }
+
+      .star-rating {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 25px;
+      }
+
+      .star {
+        font-size: 2.2rem;
+        color: #ffffff;
+        cursor: pointer;
+        transition: color 0.3s;
+      }
+
+      .star.selected {
+        color: rgb(247, 241, 142);
+      }
+
+      .question {
+        margin-bottom: 30px;
+      }
+
+      .question label {
+        display: block;
+        margin-bottom: 0px;
+        font-weight: 600;
+        color: #444;
+      }
+
+      .question textarea {
+        width: 100%;
+        padding: 12px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 12px;
+        resize: vertical;
+        transition: border 0.3s ease;
+      }
+
+      .question textarea:focus {
+        outline: none;
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+      }
+
+      .question input[type="radio"] {
+        margin-right: 6px;
+      }
+
+      .buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 30px;
+      }
+
+      button {
+        padding: 10px 24px;
+        border: none;
+        border-radius: 8px;
+        background-color: #00244a;
+        color: white;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        font-family: Century Gothic;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Tell us what you think!</h2>
+      <form id="feedbackForm">
+        <!-- Star Rating -->
+        <div class="star-rating" id="starRating">
+          <span class="star" data-value="1">&#9733;</span>
+          <span class="star" data-value="2">&#9733;</span>
+          <span class="star" data-value="3">&#9733;</span>
+          <span class="star" data-value="4">&#9733;</span>
+          <span class="star" data-value="5">&#9733;</span>
+        </div>
+
+        <!-- Question 1 -->
+        <div class="question">
+          <label>How would you rate our service?</label>
+          <label
+            ><input type="radio" name="q1" value="Excellent" /> Excellent</label
+          ><br />
+          <label><input type="radio" name="q1" value="Good" /> Good</label
+          ><br />
+          <label><input type="radio" name="q1" value="Average" /> Average</label
+          ><br />
+          <label><input type="radio" name="q1" value="Poor" /> Poor</label>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="question">
+          <label for="q2">Which topic would you prefer to explore next?</label
+          ><br />
+          <textarea
+            id="q2"
+            name="q2"
+            rows="4"
+            placeholder="Write your ideas here..."
+          ></textarea>
+        </div>
+
+        <!-- Buttons -->
+        <div class="buttons">
+          <button type="submit">Submit</button>
+          <button type="button" onclick="downloadFeedback()">Download</button>
+        </div>
+      </form>
+      <a href="homepage.html">
+        <img
+          src="back.png"
+          style="position: absolute; top: 3%; left: 15%"
+          width="10%"
+      /></a>
+    </div>
+
+    <script>
+      // Star Rating Logic
+      const stars = document.querySelectorAll(".star");
+      let selectedRating = 0;
+
+      stars.forEach((star) => {
+        star.addEventListener("click", () => {
+          selectedRating = star.getAttribute("data-value");
+          stars.forEach((s) => s.classList.remove("selected"));
+          for (let i = 0; i < selectedRating; i++) {
+            stars[i].classList.add("selected");
+          }
+        });
+      });
+
+      // Download Feedback Logic
+      function downloadFeedback() {
+        const q1 =
+          document.querySelector('input[name="q1"]:checked')?.value ||
+          "Not answered";
+        const q2 = document.getElementById("q2").value || "No comments";
+        const feedback = `Rating: ${selectedRating} stars\nAnswer 1: ${q1}\nComments: ${q2}`;
+
+        const blob = new Blob([feedback], { type: "text/plain" });
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = "feedback.txt";
+        link.click();
+      }
+
+      // Optional Submit handler
+      document
+        .getElementById("feedbackForm")
+        .addEventListener("submit", (e) => {
+          e.preventDefault();
+          alert("Thank you for your feedback!");
+        });
+    </script>
+  </body>
+</html>

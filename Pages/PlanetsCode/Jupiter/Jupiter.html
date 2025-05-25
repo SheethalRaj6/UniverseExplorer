@@ -1,0 +1,254 @@
+<html>
+  <head>
+    <title>Jupiter</title>
+    <style>
+      body {
+        background-color: #000000;
+      }
+      .f {
+        font-family: "Candara";
+      }
+      #heading {
+        position: absolute;
+        top: -5%;
+        left: 40%;
+        font-size: 80px;
+        color: rgb(16, 8, 95);
+        border: #261ca7;
+
+        text-shadow: 0 0 10px rgb(107, 231, 250), 0 0 20px rgb(23, 5, 137),
+          0 0 30px rgb(241, 234, 227), 0 0 30px rgb(243, 231, 229);
+        font-family: Georgia, "Times New Roman", Times, serif;
+        text-decoration: underline;
+        text-decoration-color: rgb(27, 40, 161);
+      }
+      #fact {
+        position: absolute;
+        top: 36%;
+        left: 10%;
+        font-size: 23px;
+        color: rgb(0, 255, 255);
+        text-shadow: 0 0 10px rgb(90, 138, 228), 0 0 20px rgb(36, 46, 155),
+          0 0 30px rgb(243, 192, 144), 0 0 30px rgb(246, 226, 193);
+        font-family: "Cooper Black";
+      }
+      #bgVideo {
+        position: fixed;
+        z-index: -1; /* Sends video to the background */
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .c {
+        position: absolute;
+        top: 25%;
+        left: 40%;
+        cursor: pointer;
+        display: inline-block;
+      }
+      .glow-img:hover {
+        border-radius: 50px;
+        box-shadow: 0 0 50px #0022ff, 0 0 100px #cbbc93, 0 0 150px #e5bb14;
+      }
+      #cloud1 {
+        position: absolute;
+        top: -11%;
+        right: 0%;
+        height: 49%;
+        width: 50%;
+      }
+      #cloud2 {
+        position: absolute;
+        top: 32%;
+        right: 0%;
+        height: 38%;
+        width: 38%;
+      }
+      #cloud3 {
+        position: absolute;
+        bottom: 2%;
+        right: 9%;
+        height: 40%;
+        width: 40%;
+      }
+
+      path {
+        fill: rgba(88, 208, 255, 0.759);
+        stroke: rgb(255, 191, 102);
+        stroke-width: 2;
+        stroke-linejoin: round;
+      }
+    </style>
+  </head>
+  <body>
+    <p id="heading">JUPITER</p>
+    <!--autoplay won't work unless the video is muted -->
+
+    <p id="fact">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;I’m Jupiter! <br />
+      I'm the largest planet in our <br />
+      solar system and the fifth planet <br />
+      from the Sun, a massive gas giant<br />
+      known for its swirling cloud stripes <br />
+      and the Great Red Spot, a persistent <br />
+      storm twice the width of Earth. <br />
+    </p>
+    <a href="../../main.html">
+      <img
+        src="BlueBack.png"
+        style="position: absolute; top: -2%; left: 24%"
+        width="150px"
+        height="150px"
+      />
+      <p
+        style="
+          position: absolute;
+          top: 5.7%;
+          left: 27.9%;
+          color: rgb(2, 72, 102);
+          font-size: 12px;
+        "
+      >
+        GO BACK
+      </p>
+    </a>
+    <img src="Jupiter.png" id="bgVideo" />
+    <div class="c" id="imageContainer">
+      <img src="jupiter1.jpg" width="350px" height="270px" id="mainImage" />
+    </div>
+    <button
+      id="nextButton"
+      style="
+        background: none;
+        position: absolute;
+        bottom: 21%;
+        left: 48%;
+        cursor: pointer;
+        border: none;
+      "
+    >
+      <img
+        src="playbuttonBlue.png"
+        width="80px"
+        height="72px"
+        class="glow-img"
+      />
+    </button>
+    <p
+      style="
+        position: absolute;
+        bottom: 10%;
+        left: 34%;
+        color: #53faf2;
+        font-size: 24px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serifs;
+      "
+    >
+      &nbsp;&nbsp;&nbsp;&nbsp;ᶜˡⁱᶜᵏ ᵗʰᵉ ᵇᵘᵗᵗᵒⁿ! <br />
+      ᵀʰᵉʳᵉ ʷⁱˡˡ ᵇᵉ ᵃ ˢᵘʳᵖʳⁱˢᵉ <br />
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ⁱⁿ ᵗʰᵉ ᵉⁿᵈ.
+    </p>
+
+    <svg viewBox="0 0 105 105" id="cloud1">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="54"
+        font-size="4"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="50" dy="2">Jupiter is a gas giant,</tspan>
+        <tspan x="52" dy="14">meaning it's primarily composed of</tspan>
+        <tspan x="52" dy="14">
+          hydrogen and helium, and lacks a solid surface.
+        </tspan>
+        <tspan x="52" dy="14">fastest planet in our solar system.</tspan>
+      </text>
+    </svg>
+
+    <svg viewBox="0 0 105 105" id="cloud2">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="60"
+        font-size="5"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="52" dy="2">Jupiter has the shortest</tspan>
+        <tspan x="52" dy="14">day of any planet in the solar system,</tspan>
+        <tspan x="52" dy="14">completing a full rotation in 10 hours.</tspan>
+      </text>
+    </svg>
+    <svg viewBox="0 0 105 105" id="cloud3">
+      <path
+        d="M 25,60 
+             a 20,20 1 0,0 0,40 
+             h 50 
+             a 20,20 1 0,0 0,-40 
+             a 10,10 1 0,0 -15,-10 
+             a 15,15 1 0,0 -35,10  
+             z"
+      />
+      <text
+        x="52"
+        y="67"
+        font-size="5"
+        fill="darkblue"
+        text-anchor="middle"
+        class="f"
+      >
+        <tspan x="47" dy="-7">Moons: Jupiter has</tspan>
+        <tspan x="46" dy="9">at least 92 known moons,</tspan>
+        <tspan x="52" dy="11">including the four large Galilean moons:</tspan>
+        <tspan x="52" dy="14">Io, Europa, Ganymede, and Callisto.</tspan>
+      </text>
+    </svg>
+
+    <script>
+      const images = [
+        "jupiter1.jpg",
+        "jupiter2.jpg",
+        "jupiter3.jpg",
+        "jupiter4.jpg",
+      ];
+      let currentIndex = 0;
+      const mainImage = document.getElementById("mainImage");
+      const nextButton = document.getElementById("nextButton");
+
+      nextButton.addEventListener("click", function () {
+        if (currentIndex < images.length - 1) {
+          currentIndex++;
+          mainImage.src = images[currentIndex];
+        } else {
+          window.open(
+            "PuzzleJupiter.html",
+            "PuzzleWindow",
+            "width=500,height=400"
+          );
+        }
+      });
+    </script>
+  </body>
+</html>
